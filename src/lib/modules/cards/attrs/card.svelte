@@ -9,29 +9,17 @@
   import Attr from "./attr.svelte";
   import AttrRow from "./attr-row.svelte";
   import AcEtc from "./ac-etc-row.svelte";
-  import {
-    CharacterAccessor,
-    CharacterCollection,
-    characterCollectionContextKey,
-    getCharacterName,
-    type CharacterName,
-  } from "$lib/shared/characterState.svelte";
-  import { getContext } from "svelte";
+  import { characterNameId } from "$lib/shared/characterState.svelte";
 
   const id = "attrs-card";
   const stats: MainAttr[] = ["str", "dex", "con", "int", "wis", "cha"];
   let acEtc = ["Proficiency", "Initiative", "AC", "Max HP", "Hit Dice"];
-
-  let characterCollection: CharacterCollection = getContext(characterCollectionContextKey);
-
-  let characterName: CharacterName = getCharacterName();
-  $inspect(characterName);
 </script>
 
 <Card {id}>
   <Banner columns="calc(7in / 8) 1fr">
     <div>Name:</div>
-    <BannerInput id="character-name" textAlign="left" bind:value={characterName.name} />
+    <BannerInput id={characterNameId} textAlign="left" />
   </Banner>
 
   <div class="card-columns">

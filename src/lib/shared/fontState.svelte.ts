@@ -1,30 +1,45 @@
 import { type Storable, StorageKey, StorageUtil } from './storage.ts';
 
-const OPENDYSLEXIC = "OpenDyslexic";
+const OPENDYSLEXIC = 'OpenDyslexic';
 const DEFAULTS = [
-    "Arial", "Arial Black", "Helvetica", "Sans-Serif", "Times New Roman", "Times", "Serif", "Courier New", "Verdana"
+  'Arial',
+  'Arial Black',
+  'Helvetica',
+  'Sans-Serif',
+  'Times New Roman',
+  'Times',
+  'Serif',
+  'Courier New',
+  'Verdana',
 ];
 const GOOGLE = [
-    "Roboto", "Roboto Serif", "Merriweather", "Source Code Pro", "PT Serif", "Indie Flower", "Caveat", "Lobster Two",
-    "PlayPen Sans"
+  'Roboto',
+  'Roboto Serif',
+  'Merriweather',
+  'Source Code Pro',
+  'PT Serif',
+  'Indie Flower',
+  'Caveat',
+  'Lobster Two',
+  'PlayPen Sans',
 ];
 
 export enum FontRole {
   label = 'LABEL',
-  input = 'INPUT'
+  input = 'INPUT',
 }
 const FONT = 'font' as const;
 const ADJUST = 'adjust' as const;
 const ADJUSTMENTS = 'adjustments' as const;
 
-export const fontSettingsContextKey = Symbol("fontSettings");
+export const fontSettingsContextKey = Symbol('fontSettings');
 
 type FontAdjustmentsRecord = Record<string, number>;
 type RoleSettingValue = {
   [FONT]: string;
   [ADJUST]: number;
   [ADJUSTMENTS]: FontAdjustmentsRecord;
-}
+};
 type FontSettingsRecord = Record<FontRole, RoleSettingValue>;
 
 class FontSettings implements Storable<FontSettings> {
@@ -38,7 +53,7 @@ class FontSettings implements Storable<FontSettings> {
     return OPENDYSLEXIC;
   }
   static get defaultWordSpacing(): string {
-    return "-0.4em";
+    return '-0.4em';
   }
   static get defaultAdjust(): number {
     return 0.58;
@@ -48,7 +63,7 @@ class FontSettings implements Storable<FontSettings> {
   }
   static get defaultAdjustments(): FontAdjustmentsRecord {
     return {
-      [FontSettings.defaultFont]: FontSettings.defaultAdjust
+      [FontSettings.defaultFont]: FontSettings.defaultAdjust,
     };
   }
   static get defaultSettings(): FontSettingsRecord {
@@ -56,18 +71,18 @@ class FontSettings implements Storable<FontSettings> {
       [FontRole.label]: {
         [FONT]: FontSettings.defaultFont,
         [ADJUST]: FontSettings.defaultAdjust,
-        [ADJUSTMENTS]: FontSettings.defaultAdjustments
+        [ADJUSTMENTS]: FontSettings.defaultAdjustments,
       },
       [FontRole.input]: {
         [FONT]: FontSettings.defaultFont,
         [ADJUST]: FontSettings.defaultAdjust,
-        [ADJUSTMENTS]: FontSettings.defaultAdjustments
-      }
+        [ADJUSTMENTS]: FontSettings.defaultAdjustments,
+      },
     };
   }
   static get fontNames(): Array<string> {
-      const merged = [...DEFAULTS, ...GOOGLE].sort();
-      return [OPENDYSLEXIC, ...merged];
+    const merged = [...DEFAULTS, ...GOOGLE].sort();
+    return [OPENDYSLEXIC, ...merged];
   }
   static get storageKey(): StorageKey {
     return StorageKey.fontSettings;
@@ -77,11 +92,11 @@ class FontSettings implements Storable<FontSettings> {
   }
 
   static getSuggestedAdust(font: string): number {
-   return font == FontSettings.defaultFont ? FontSettings.defaultAdjust : FontSettings.otherAdjust;
+    return font == FontSettings.defaultFont ? FontSettings.defaultAdjust : FontSettings.otherAdjust;
   }
 
   static getWordSpacing(font: string): string {
-    return font == FontSettings.defaultFont ? FontSettings.defaultWordSpacing: "normal";
+    return font == FontSettings.defaultFont ? FontSettings.defaultWordSpacing : 'normal';
   }
 
   getFont(role: FontRole): string {
@@ -107,7 +122,7 @@ class FontSettings implements Storable<FontSettings> {
   }
 
   getAdjustments(role: FontRole): FontAdjustmentsRecord {
-    return this.settings[role][ADJUSTMENTS]
+    return this.settings[role][ADJUSTMENTS];
   }
   setAdjustments(role: FontRole, adjustments: FontAdjustmentsRecord) {
     this.settings[role][ADJUSTMENTS] = adjustments;
@@ -118,10 +133,10 @@ class FontSettings implements Storable<FontSettings> {
   }
   get serialize(): string {
     return FontSettings.serialize(this.settings);
-  } 
+  }
   static deserialize(value: string | null): FontSettings {
-     const parsed: FontSettingsRecord | null = value ? JSON.parse(value) : null;
-     return new FontSettings(parsed);
+    const parsed: FontSettingsRecord | null = value ? JSON.parse(value) : null;
+    return new FontSettings(parsed);
   }
   deserialize(value: string | null): FontSettings {
     return FontSettings.deserialize(value);
@@ -150,54 +165,54 @@ class FontSettings implements Storable<FontSettings> {
   }
 
   save(): void {
-    StorageUtil.save(this);
+    StorageUtil.save(FontSettings, this);
   }
 }
 
 export class FontAccessor {
-    settings: FontSettings;
-    role: FontRole;
+  settings: FontSettings;
+  role: FontRole;
 
-    constructor(settings: FontSettings, role: FontRole) {
-        this.settings = settings;
-        this.role = role;
-    }
+  constructor(settings: FontSettings, role: FontRole) {
+    this.settings = settings;
+    this.role = role;
+  }
 
-    static settingsFromStorage(): FontSettings {
-      const json = StorageUtil.getJson(FontSettings.storageKey);
-      return FontSettings.deserialize(json);
-    }
+  static settingsFromStorage(): FontSettings {
+    const json = StorageUtil.getJson(FontSettings.storageKey);
+    return FontSettings.deserialize(json);
+  }
 
-    static get fontNames(): string[] {
-      return FontSettings.fontNames;
-    }
+  static get fontNames(): string[] {
+    return FontSettings.fontNames;
+  }
 
-    get font(): string {
-      return this.settings.getFont(this.role);
-    }
-    set font(font: string) {
-      this.settings.setFont(this.role, font);
-    }
+  get font(): string {
+    return this.settings.getFont(this.role);
+  }
+  set font(font: string) {
+    this.settings.setFont(this.role, font);
+  }
 
-    get adjust(): number {
-      return this.settings.getAdjust(this.role);
-    }
-    set adjust(adjust: number) {
+  get adjust(): number {
+    return this.settings.getAdjust(this.role);
+  }
+  set adjust(adjust: number) {
     this.settings.setAdjust(this.role, adjust);
   }
-  
-    get adjustments(): FontAdjustmentsRecord {
-      return this.settings.getAdjustments(this.role);
-    }
-    set inputAdjustments(adjustments: FontAdjustmentsRecord) {
-      this.settings.setAdjustments(this.role, adjustments);
-    }
 
-    get wordSpacing(): string {
-      return FontSettings.getWordSpacing(this.font);
-    }
+  get adjustments(): FontAdjustmentsRecord {
+    return this.settings.getAdjustments(this.role);
+  }
+  set inputAdjustments(adjustments: FontAdjustmentsRecord) {
+    this.settings.setAdjustments(this.role, adjustments);
+  }
 
-    resetAdjustment(all: boolean = false) {
-      this.settings.resetAdjustment(this.role, all);
-    }
+  get wordSpacing(): string {
+    return FontSettings.getWordSpacing(this.font);
+  }
+
+  resetAdjustment(all: boolean = false) {
+    this.settings.resetAdjustment(this.role, all);
+  }
 }

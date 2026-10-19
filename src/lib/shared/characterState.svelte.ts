@@ -1,119 +1,115 @@
-import { createContext } from 'svelte';
 import { type Storable, StorageKey, StorageUtil } from './storage.ts';
 import { slugify } from './utils.svelte.ts';
 
-const VALUE = 'value' as const;
-const SLUG = 'slug' as const;
+export const characterContextKey = Symbol('characterSettings');
+export const characterNameId: string = 'character-name' as const;
+
 const NAME = 'name' as const;
-const ID = 'id' as const;
 const TEXTS = 'texts' as const;
 const CHECKS = 'checks' as const;
 
-export const characterCollectionContextKey = Symbol("characterSettings");
-export const characterNameContextKey = Symbol("characterName");
+type CharacterTextRecord = Record<string, string>;
+type CharacterCheckRecord = Record<string, boolean>;
 
-export type CharacterTextRecord = Record<string, string>;
-export type CharacterCheckRecord = Record<string, boolean>;
+type CharacterSettings = {
+  [NAME]: string;
+  [TEXTS]: CharacterTextRecord;
+  [CHECKS]: CharacterCheckRecord;
+};
 
-export interface CharacterName {
-    name: string;
-}
-export const [getCharacterName, setCharacterName] = createContext<CharacterName>();
+export class Character implements Storable<Character> {
+  settings: CharacterSettings = $state<CharacterSettings>(Character.defaultSettings);
 
-class Character {
-    name: string = $state("default");
-    checks: CharacterCheckRecord = $state({});
-    texts: CharacterTextRecord = $state({});
+  constructor(settings?: CharacterSettings | null) {
+    this.settings = settings || Character.defaultSettings;
+  }
 
-    constructor(name: string) {
-        this.name = name;
-    }
+  get slug(): string {
+    return slugify(this.settings[NAME]);
+  }
 
-    get slug(): string {
-        return CharacterCollection.slug(this.name);
-    }
+  static get defaultSettings(): CharacterSettings {
+    return {
+      [NAME]: '',
+      [TEXTS]: {},
+      [CHECKS]: {},
+    };
+  }
 
-    getCheck(id: string): boolean {
-        return this.checks[id] || false;
-    }
-    setCheck(id: string, value: boolean) {
-        this.checks[id] = value;
-    }
+  static get storageKey(): StorageKey {
+    return StorageKey.currentCharacter;
+  }
 
-    getText(id: string): string {
-        return this.texts[id] || "";
+  getCheck(id: string): boolean {
+    return this.settings[CHECKS][id] || false;
+  }
+  setCheck(id: string, value: boolean) {
+    if (value === true) {
+      this.settings[CHECKS][id] = value;
+    } else {
+      delete this.settings[CHECKS][id];
     }
-    setText(id: string, value: string) {
-        if (value) {
-            this.texts[id] = value;
-        } else {
-            delete this.texts[id];
-        }
-    }
-}
+    this.save();
+  }
 
-type CharacterCollectionRecord = Record<string, Character>;
+  getText(id: string): string {
+    return this.settings[TEXTS][id] || '';
+  }
+  setText(id: string, value: string) {
+    if (id == characterNameId) {
+      this.settings[NAME] = value;
+    }
+    if (value) {
+      this.settings[TEXTS][id] = value;
+    } else {
+      delete this.settings[TEXTS][id];
+    }
+    this.save();
+  }
 
-export class CharacterCollection { //implements Storable<CharacterCollection> {
-    characters: CharacterCollectionRecord =  $state({"default": new Character("default")});
+  get serialize(): string {
+    return JSON.stringify(this.settings);
+  }
 
-    static slug(name: string): string {
-        return slugify(name) || "default";
-    }
+  static deserialize(value: string | null): Character {
+    const parsed: CharacterSettings | null = value ? JSON.parse(value) : null;
+    return new Character(parsed);
+  }
 
-    getCharacter(name: string): Character | null {
-        return this.characters[CharacterCollection.slug(name)] || null;
-    }
-    setCharacter(name: string, character: Character | null) {
-        const slug = CharacterCollection.slug(name);
-        if (character) {
-            this.characters[slug] = character;
-        } else {
-            delete this.characters[slug];
-        }
-    }
-
-    getCheck(name: string, id: string): boolean {
-        return this.characters[CharacterCollection.slug(name)]?.getCheck(id) || false;
-    }
-    setCheck(name: string, id: string, value: boolean) {
-        this.characters[CharacterCollection.slug(name)]?.setCheck(id, value);
-    }
-
-    getText(name: string, id: string): string {
-        return this.characters[CharacterCollection.slug(name)]?.getText(id) || "";
-    }
-    setText(name: string, id: string, value: string) {
-        this.characters[CharacterCollection.slug(name)]?.setText(id, value);
-    }
+  save(): void {
+    StorageUtil.save(Character, this);
+  }
 }
 
 export class CharacterAccessor {
-    collection: CharacterCollection;
-    name: string;
-    id: string;
+  id: string;
+  character: Character;
 
-    constructor(collection: CharacterCollection, name: string, id: string) {
-        this.collection = collection;
-        this.name = name;
-        this.id = id;
-    }
+  constructor(id: string, character: Character) {
+    this.id = id;
+    this.character = character;
+  }
 
-    static characterCollectionFromStorage(): CharacterCollection {
-        return new CharacterCollection();
-    }
+  static settingsFromStorage(): Character | null {
+    return StorageUtil.getItem(Character);
+  }
 
-    get check(): boolean {
-        return this.collection.getCheck(this.name, this.id);
-    }
-    set check(value: boolean) {
-        this.collection.setCheck(this.name, this.id, value);
-    }
+  get check(): boolean {
+    return this.character.getCheck(this.id);
+  }
+  set check(value: boolean) {
+    this.character.setCheck(this.id, value);
+  }
 
-    get text(): string {
-        return this.collection.getText(this.name, this.id);
-    }
-    set text(value: string) {
-        this.collection.setText(this.name, this.id, value);
-    }
+  get text(): string {
+    return this.character.getText(this.id);
+  }
+  set text(value: string) {
+    this.character.setText(this.id, value);
+  }
+
+  clear(): void {
+    this.character = new Character();
+    this.character.save();
+  }
 }

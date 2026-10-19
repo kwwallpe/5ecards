@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getContext } from "svelte";
   import { FontAccessor, FontRole, fontSettingsContextKey } from "$lib/shared/fontState.svelte";
+  import { CharacterAccessor, characterContextKey } from "$lib/shared/characterState.svelte";
 
   interface Props {
     id: string;
@@ -21,12 +22,13 @@
   }: Props = $props();
 
   const fontAccessor: FontAccessor = $derived(new FontAccessor(getContext(fontSettingsContextKey), FontRole.input));
+  const characterAccessor: CharacterAccessor = $derived(new CharacterAccessor(id, getContext(characterContextKey)));
 </script>
 
 <input
   type="text"
   {id}
-  bind:value
+  bind:value={characterAccessor.text}
   style="
     font-family: {fontAccessor.font};
     text-align: {textAlign};
