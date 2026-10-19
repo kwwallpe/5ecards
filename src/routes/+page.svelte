@@ -1,29 +1,27 @@
 <script lang="ts">
-  import { createContext, setContext } from "svelte";
+  import { setContext } from "svelte";
+  import pdf from "$lib/assets/nine_cards.pdf";
   import AttrsCard from "$lib/modules/cards/attrs/card.svelte";
-  import ColDouble from "$lib/modules/cards/col-two/card.svelte";
   import ColSingle from "$lib/modules/cards/col-one/card.svelte";
+  import ColDouble from "$lib/modules/cards/col-two/card.svelte";
   import CombatCard from "$lib/modules/cards/combat/card.svelte";
   import Dummy from "$lib/modules/cards/dummy/card.svelte";
   import ItemsCard from "$lib/modules/cards/items/card.svelte";
   import ProfsCard from "$lib/modules/cards/profs/card.svelte";
   import SkillsCard from "$lib/modules/cards/skills/card.svelte";
-
-  import pdf from "$lib/assets/nine_cards.pdf";
-
-  import Bordered from "$lib/modules/ui/bordered.svelte";
-  import CardLabelFontSelect from "$lib/modules/components/selects/card-label-font-select.svelte";
-  import CardInputFontSelect from "$lib/modules/components/selects/card-input-font-select.svelte";
+  import CardFontResetButton from "$lib/modules/components/buttons/card-font-reset-button.svelte";
   import CardInputAdjustRange from "$lib/modules/components/ranges/card-input-adjust-range.svelte";
   import CardLabelAdjustRange from "$lib/modules/components/ranges/card-label-adjust-range.svelte";
-  import CardFontResetButton from "$lib/modules/components/buttons/card-font-reset-button.svelte";
-  import { FontRole, FontAccessor, fontSettingsContextKey } from "$lib/shared/fontState.svelte";
+  import CardInputFontSelect from "$lib/modules/components/selects/card-input-font-select.svelte";
+  import CardLabelFontSelect from "$lib/modules/components/selects/card-label-font-select.svelte";
+  import Bordered from "$lib/modules/ui/bordered.svelte";
   import {
     CharacterAccessor,
     type CharacterName,
     characterCollectionContextKey,
     setCharacterName,
   } from "$lib/shared/characterState.svelte";
+  import { FontRole, FontAccessor, fontSettingsContextKey } from "$lib/shared/fontState.svelte";
 
   let fontSettings = FontAccessor.settingsFromStorage();
   let characterCollection = CharacterAccessor.characterCollectionFromStorage();
