@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+\    <!-- D20 (Icosahedron) -->
+    <g id="d20">
+        <!-- Main body of the d20 -->
+        <!-- Top left face-->
+        <polyline points="34,1 7,14 33,12 34,1" fill="mediumorchid" stroke="navy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Top right face -->
+        <polyline points="36,2 36,12 62,14 36,2" fill="mistyrose" stroke="navy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Center far left face -->
+        <polyline points="2,20 13,46 2,51 2,20" fill="darkmagenta" stroke="navy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Center left face-->
+        <polyline points="3,17 15,45 31,15 3,17" fill="darkorchid" stroke="navy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Center face -->
+        <polyline points="17,46 54,45 34,14 17,46" fill="orchid" stroke="navy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Center right face -->
+        <polyline points="38,15 56,44 67,17 38,15" fill="plum" stroke="navy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Center far right face -->
+        <polyline points="68,20 58,46 68,51 68,20" fill="rebeccapurple" stroke="navy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Bottom left face-->
+        <polyline points="3,53 31,68 14,48 3,53" fill="indigo" stroke="navy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Bottom center face -->
+        <polyline points="18,49 34,68 53,48 18,49" fill="indigo" stroke="navy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Bottom right face -->
+        <polyline points="56,48 37,68 67,53 56,48" fill="rebeccapurple" stroke="navy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+</svg>
