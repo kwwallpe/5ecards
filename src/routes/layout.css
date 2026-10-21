@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+@plugin 'flowbite/plugin';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+@source "../../node_modules/flowbite-svelte/dist";
+@source "../../node_modules/flowbite-svelte-icons/dist";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+
+  p {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
+}

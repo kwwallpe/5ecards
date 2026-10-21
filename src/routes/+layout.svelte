@@ -1,7 +1,8 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
-  import favicon from "$lib/assets/d20.svg";
-  import Bordered from "$lib/modules/ui/bordered.svelte";
+  import './layout.css';
+  import type { Snippet } from 'svelte';
+  import favicon from '$lib/assets/d20.svg';
+  import Bordered from '$lib/modules/ui/bordered.svelte';
 
   interface Props {
     children: Snippet;
@@ -13,8 +14,11 @@
 <svelte:head>
   <link rel="icon" href={favicon} />
   <link rel="stylesheet" href="/fonts/fonts.css" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+
   <link
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Indie+Flower&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playpen+Sans:wght@100..800&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
     rel="stylesheet"
@@ -46,11 +50,6 @@
 
 <style>
   :global {
-    html {
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
     body {
       margin: 0;
       padding: 0.25in;

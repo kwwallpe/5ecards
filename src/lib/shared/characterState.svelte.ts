@@ -76,6 +76,11 @@ export class Character implements Storable<Character> {
     return new Character(parsed);
   }
 
+  clear(): void {
+    this.settings = Character.defaultSettings;
+    this.save();
+  }
+
   save(): void {
     StorageUtil.save(Character, this);
   }

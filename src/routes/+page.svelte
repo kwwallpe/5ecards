@@ -9,14 +9,10 @@
   import ItemsCard from '$lib/modules/cards/items/card.svelte';
   import ProfsCard from '$lib/modules/cards/profs/card.svelte';
   import SkillsCard from '$lib/modules/cards/skills/card.svelte';
-  import CardFontResetButton from '$lib/modules/components/buttons/card-font-reset-button.svelte';
-  import CardInputAdjustRange from '$lib/modules/components/ranges/card-input-adjust-range.svelte';
-  import CardLabelAdjustRange from '$lib/modules/components/ranges/card-label-adjust-range.svelte';
-  import CardInputFontSelect from '$lib/modules/components/selects/card-input-font-select.svelte';
-  import CardLabelFontSelect from '$lib/modules/components/selects/card-label-font-select.svelte';
+  import CardControls from '$lib/modules/ui/card-controls.svelte';
   import Bordered from '$lib/modules/ui/bordered.svelte';
   import { CharacterAccessor, characterContextKey } from '$lib/shared/characterState.svelte';
-  import { FontRole, FontAccessor, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
+  import { FontAccessor, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
 
   let fontSettings = FontAccessor.settingsFromStorage();
   let character = CharacterAccessor.settingsFromStorage();
@@ -34,7 +30,7 @@
     <div class="words">
       <h1>D&D 5e Character Index Cards</h1>
       <h2>tl; dr</h2>
-      <ol>
+      <ol class="list-outside list-decimal ml-8">
         <li>
           Optional: Fill out any of the text boxes/check boxes you want to (practically anything that doesn't already
           have text).
@@ -48,19 +44,8 @@
         <a href="/help">help and more detail</a> available if you're interested.
       </p>
     </div>
-    <div class="controls" data-parent="yes">
-      <div>
-        <CardLabelFontSelect />
-        <CardLabelAdjustRange />
-        <CardFontResetButton role={FontRole.label} />
-        <CardFontResetButton role={FontRole.label} all={true} />
-      </div>
-      <div>
-        <CardInputFontSelect />
-        <CardInputAdjustRange />
-        <CardFontResetButton role={FontRole.input} />
-        <CardFontResetButton role={FontRole.input} all={true} />
-      </div>
+    <div class="controls">
+      <CardControls />
     </div>
   </div>
 </Bordered>
@@ -98,12 +83,13 @@
     initial-value: calc(3in - 2px);
   }
 
-  :global(div) {
+  #intro {
     display: grid;
+    grid-template-columns: 1fr 450px;
   }
 
-  #intro {
-    grid-template-columns: 7fr 2fr;
+  #intro .words {
+    display: block;
   }
 
   #cards {
@@ -112,29 +98,12 @@
     gap: 0.25in;
   }
 
-  h1,
-  h2,
-  ol {
-    margin-top: 0;
-  }
-
   .controls {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1em;
     padding-left: 20px;
   }
 
-  .controls div {
-    display: flex;
-    flex-direction: column;
-    align-items: right;
-    justify-content: top;
-    gap: 10px;
-    flex-basis: 70px;
-  }
-
   .six {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--c-width), 1fr));
     margin: 0;
     gap: 15px;

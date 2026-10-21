@@ -1,7 +1,7 @@
 <script lang="ts">
-  import folioPic from "$lib/assets/folio.jpeg";
-  import controlsPic from "$lib/assets/controls.png";
-  import Bordered from "$lib/modules/ui/bordered.svelte";
+  import folioPic from '$lib/assets/folio.jpeg';
+  import controlsPic from '$lib/assets/controls.png';
+  import Bordered from '$lib/modules/ui/bordered.svelte';
 </script>
 
 <svelte:head>
@@ -37,7 +37,7 @@
       <abbr title="do it yourself">DIY</abbr>.
     </p>
     <p>This handles a few things that fit the way I like to play:</p>
-    <ul>
+    <ul class="list-outside list-decimal ml-8">
       <li>Each card is easily replaceaable with a regular index card.</li>
       <li>They stand up better to erasing/rewriting than standard printer paper.</li>
       <li>
@@ -65,7 +65,7 @@
     </p>
     <p>Dig it or don't! Cheers!</p>
   </div>
-  <h2>Help</h2>
+  <h2 class="pt-2">Help</h2>
   <div class="with-img">
     <p>
       <img
@@ -84,10 +84,10 @@
       out the background and border that show when they're active.
     </p>
     <p>There are some controls available for customizing the fonts used on the cards.</p>
-    <ul>
+    <ul class="list-outside list-disc ml-8">
       <li>
         <strong>Fonts</strong>
-        <ul>
+        <ul class="list-outside list-disc ml-8">
           <li>
             <em>Card Label Font</em>: This controls the font that is used for the static text on the cards. For example,
             <em>Name:</em> at the top of the first card.

@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { getContext } from "svelte";
-  import { FontAccessor, FontRole, fontSettingsContextKey } from "$lib/shared/fontState.svelte";
-  import { CharacterAccessor, characterContextKey } from "$lib/shared/characterState.svelte";
+  import { getContext } from 'svelte';
+  import { FontAccessor, FontRole, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
+  import { CharacterAccessor, characterContextKey } from '$lib/shared/characterState.svelte';
 
   interface Props {
     id: string;
-    textAlign?: "left" | "center" | "right";
-    fontWeight?: "bold" | "normal";
+    textAlign?: 'left' | 'center' | 'right';
+    fontWeight?: 'bold' | 'normal';
     fontSize?: string | null;
     color?: string | null;
     value?: string;
@@ -14,15 +14,15 @@
 
   let {
     id,
-    textAlign = "right",
-    fontWeight = "normal",
+    textAlign = 'right',
+    fontWeight = 'normal',
     fontSize = null,
     color = null,
     value = $bindable<string>(),
   }: Props = $props();
 
-  const fontAccessor: FontAccessor = $derived(new FontAccessor(getContext(fontSettingsContextKey), FontRole.input));
-  const characterAccessor: CharacterAccessor = $derived(new CharacterAccessor(id, getContext(characterContextKey)));
+  let fontAccessor: FontAccessor = $derived(new FontAccessor(getContext(fontSettingsContextKey), FontRole.input));
+  let characterAccessor: CharacterAccessor = $derived(new CharacterAccessor(id, getContext(characterContextKey)));
 </script>
 
 <input
@@ -41,7 +41,7 @@
 />
 
 <style>
-  input[type="text"] {
+  input[type='text'] {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -54,14 +54,14 @@
   }
 
   @media (hover: hover) {
-    input[type="text"]:not(:disabled):hover {
+    input[type='text']:not(:disabled):hover {
       background-color: mistyrose;
       outline-style: dotted;
       outline-color: lightgray;
     }
   }
 
-  input[type="text"]:focus-visible {
+  input[type='text']:focus-visible {
     background-color: ivory;
     outline-style: dotted;
     outline-color: lightgray;
@@ -69,14 +69,14 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    input[type="text"] {
+    input[type='text'] {
       transition: none;
     }
   }
 
   @media print {
-    input[type="text"],
-    input[type="text"]:not(:disabled):hover {
+    input[type='text'],
+    input[type='text']:not(:disabled):hover {
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
 
