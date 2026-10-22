@@ -9,11 +9,13 @@
   let character: Character = getContext(characterContextKey);
 
   const onclick = () => {
+    console.log('clearing character');
     character.clear();
+    console.log('character', character.files);
   };
 </script>
 
 <Button shadow color="purple" {id} {onclick}>
   <CloseCircleOutline class="me-2" />
-  Clear All Cards
+  Clear Character
 </Button>

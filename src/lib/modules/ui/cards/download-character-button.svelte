@@ -10,11 +10,16 @@
 
   const onclick = () => {
     const blob = new Blob([character.serialize], { type: 'application/json' });
-    const filename = `${character.slug || 'character'}.json`;
+    let fileName: string = 'character';
+    if (character.slug) {
+      fileName = `${character.slug}.json`;
+    } else if (character.files?.[0]?.name) {
+      fileName = character.files?.[0]?.name;
+    }
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = filename;
+    a.download = fileName;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

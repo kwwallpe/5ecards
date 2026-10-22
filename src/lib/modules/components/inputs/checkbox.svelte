@@ -12,7 +12,7 @@
   let characterAccessor: CharacterAccessor = $derived(new CharacterAccessor(id, getContext(characterContextKey)));
 </script>
 
-<input type="checkbox" {id} {disabled} bind:checked={characterAccessor.check} />
+<input type="checkbox" class="appearance-none after:hidden" {id} {disabled} bind:checked={characterAccessor.check} />
 
 <style>
   input[type='checkbox'] {
