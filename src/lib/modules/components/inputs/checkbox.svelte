@@ -12,7 +12,7 @@
   let characterAccessor: CharacterAccessor = $derived(new CharacterAccessor(id, getContext(characterContextKey)));
 </script>
 
-<input type="checkbox" class="appearance-none after:hidden" {id} {disabled} bind:checked={characterAccessor.check} />
+<input type="checkbox" class="appearance-none" {id} {disabled} bind:checked={characterAccessor.check} />
 
 <style>
   input[type='checkbox'] {
@@ -22,7 +22,6 @@
     margin: auto;
     padding: 0;
     border: 2px solid black;
-    appearance: none;
     background-color: transparent;
     outline: none;
   }
@@ -30,6 +29,7 @@
   input[type='checkbox']:checked {
     background-size: cover;
     background-color: black;
+    background-image: none;
   }
 
   @media (hover: hover) {
