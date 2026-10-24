@@ -22,8 +22,11 @@
              h-[var(--size,calc(1in/8))]
              outline-purple-500
              m-auto focus:ring-0
-             checked:bg-none print:[print-color-adjust:exact
-             text-black`,
+             bg-none checked:bg-none
+             bg-transparent dark:bg-transparent
+             text-black
+             print:[print-color-adjust:exact]
+             `,
     },
   };
 </script>

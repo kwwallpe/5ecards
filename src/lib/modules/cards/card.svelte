@@ -36,6 +36,7 @@
     overflow: hidden;
     white-space: nowrap;
     background: white;
+    color: black;
   }
   .card {
     aspect-ratio: var(--c-width) / var(--c-height);
