@@ -1,7 +1,8 @@
 <script lang="ts">
   import { getContext } from 'svelte';
-  import { FontAccessor, FontRole, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
+
   import { CharacterAccessor, characterContextKey } from '$lib/shared/characterState.svelte';
+  import { FontAccessor, FontRole, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
 
   interface Props {
     id: string;
@@ -9,17 +10,9 @@
     fontWeight?: 'bold' | 'normal';
     fontSize?: string | null;
     color?: string | null;
-    value?: string;
   }
 
-  let {
-    id,
-    textAlign = 'right',
-    fontWeight = 'normal',
-    fontSize = null,
-    color = null,
-    value = $bindable<string>(),
-  }: Props = $props();
+  let { id, textAlign = 'right', fontWeight = 'normal', fontSize = null, color = null }: Props = $props();
 
   let fontAccessor: FontAccessor = $derived(new FontAccessor(getContext(fontSettingsContextKey), FontRole.input));
   let characterAccessor: CharacterAccessor = $derived(new CharacterAccessor(id, getContext(characterContextKey)));

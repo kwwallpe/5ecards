@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { ChangeEventHandler } from 'svelte/elements';
   import { Label, Range } from 'flowbite-svelte';
+  import type { ChangeEventHandler } from 'svelte/elements';
 
   interface Props {
     id: string;
@@ -8,7 +8,7 @@
     min?: number;
     max?: number;
     step?: number;
-    value?: any;
+    value?: number;
     onchange?: ChangeEventHandler<HTMLInputElement> | null;
   }
 
@@ -18,7 +18,7 @@
     min = 1,
     max = 100,
     step = 1,
-    value = $bindable<string>(),
+    value = $bindable<number>(),
     onchange: onchange = null,
   }: Props = $props();
 

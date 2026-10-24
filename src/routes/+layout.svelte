@@ -1,11 +1,9 @@
 <script lang="ts">
   import './layout.css';
-  import { page } from '$app/state';
-  import { Navbar, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
-  import { DarkMode } from 'flowbite-svelte';
-  import { Footer } from 'flowbite-svelte';
+  import { Navbar, NavLi, NavUl, NavHamburger, DarkMode, Footer, ThemeProvider } from 'flowbite-svelte';
   import type { Snippet } from 'svelte';
-  import { ThemeProvider } from 'flowbite-svelte';
+
+  import { page } from '$app/state';
   import favicon from '$lib/assets/d20.svg';
   import Bordered from '$lib/modules/ui/bordered.svelte';
 
@@ -18,6 +16,15 @@
 
   const theme = {
     button: { base: 'font-bold gap-1' },
+    checkbox: {
+      base: `rounded-none 
+             w-[var(--size,calc(1in/8))]
+             h-[var(--size,calc(1in/8))]
+             outline-purple-500
+             m-auto focus:ring-0
+             checked:bg-none print:[print-color-adjust:exact
+             text-black`,
+    },
   };
 </script>
 
@@ -41,7 +48,7 @@
         <NavLi class="py-0 md:py-0" href="/help/">Help</NavLi>
       </NavUl>
       <NavHamburger />
-      <DarkMode class="py-1 sm:py-1" />
+      <DarkMode class="border py-1 sm:py-1" />
     </Navbar>
   </Bordered>
 

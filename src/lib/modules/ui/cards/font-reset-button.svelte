@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { getContext } from 'svelte';
-
   import { Button } from 'flowbite-svelte';
   import { CloseCircleOutline, UndoOutline } from 'flowbite-svelte-icons';
+  import { getContext } from 'svelte';
+
   import { FontRole, FontAccessor, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
 
   interface Props {

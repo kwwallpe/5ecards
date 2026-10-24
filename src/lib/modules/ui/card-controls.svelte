@@ -1,8 +1,9 @@
 <script lang="ts">
   import { FontRole } from '$lib/shared/fontState.svelte';
+
+  import CharacterUpload from './cards/character-upload.svelte';
   import ClearButton from './cards/clear-button.svelte';
   import DownloadCharacterButton from './cards/download-character-button.svelte';
-  import CharacterUpload from './cards/character-upload.svelte';
   import FontControls from './cards/font-controls.svelte';
 </script>
 

@@ -1,7 +1,8 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
-  import { getContext } from "svelte";
-  import { FontAccessor, FontRole, fontSettingsContextKey } from "$lib/shared/fontState.svelte";
+  import type { Snippet } from 'svelte';
+  import { getContext } from 'svelte';
+
+  import { FontAccessor, FontRole, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
 
   interface Props {
     id: string;
@@ -9,7 +10,7 @@
     rows?: string | null;
   }
 
-  let { id, rows = "1fr 12fr", children }: Props = $props();
+  let { id, rows = '1fr 12fr', children }: Props = $props();
 
   const fontAccessor: FontAccessor = $derived(new FontAccessor(getContext(fontSettingsContextKey), FontRole.label));
 </script>

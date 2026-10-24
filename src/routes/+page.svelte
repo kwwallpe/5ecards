@@ -1,5 +1,7 @@
 <script lang="ts">
   import { setContext } from 'svelte';
+
+  import { resolve } from '$app/paths';
   import pdf from '$lib/assets/nine_cards.pdf';
   import AttrsCard from '$lib/modules/cards/attrs/card.svelte';
   import ColSingle from '$lib/modules/cards/col-one/card.svelte';
@@ -9,8 +11,8 @@
   import ItemsCard from '$lib/modules/cards/items/card.svelte';
   import ProfsCard from '$lib/modules/cards/profs/card.svelte';
   import SkillsCard from '$lib/modules/cards/skills/card.svelte';
-  import CardControls from '$lib/modules/ui/card-controls.svelte';
   import Bordered from '$lib/modules/ui/bordered.svelte';
+  import CardControls from '$lib/modules/ui/card-controls.svelte';
   import { CharacterAccessor, characterContextKey } from '$lib/shared/characterState.svelte';
   import { FontAccessor, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
 
@@ -40,8 +42,9 @@
         <li>Use them as a character sheet replacement.</li>
       </ol>
       <p>
+        <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
         Or just print <a href={pdf}>the PDF version</a>. There's
-        <a href="/help">help and more detail</a> available if you're interested.
+        <a href={resolve('/help')}>help and more detail</a> available if you're interested.
       </p>
     </div>
     <div class="controls">

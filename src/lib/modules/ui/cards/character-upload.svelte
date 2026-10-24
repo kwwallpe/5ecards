@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Fileupload, Label, Helper } from 'flowbite-svelte';
   import { getContext } from 'svelte';
+
   import { Character, characterContextKey } from '$lib/shared/characterState.svelte';
 
   const id = 'character-upload';

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { FontRole } from '$lib/shared/fontState.svelte';
-  import FontResetButton from '$lib/modules/ui/cards/font-reset-button.svelte';
   import FontAdjustRange from '$lib/modules/ui/cards/font-adjust-range.svelte';
+  import FontResetButton from '$lib/modules/ui/cards/font-reset-button.svelte';
   import FontSelect from '$lib/modules/ui/cards/font-select.svelte';
+  import { FontRole } from '$lib/shared/fontState.svelte';
 
   interface Props {
     role: FontRole;
@@ -11,10 +11,10 @@
 </script>
 
 <div>
-  <FontSelect role={FontRole.label} />
-  <FontAdjustRange role={FontRole.label} />
-  <FontResetButton role={FontRole.label} />
-  <FontResetButton role={FontRole.label} all={true} />
+  <FontSelect {role} />
+  <FontAdjustRange {role} />
+  <FontResetButton {role} />
+  <FontResetButton {role} all={true} />
 </div>
 
 <style>

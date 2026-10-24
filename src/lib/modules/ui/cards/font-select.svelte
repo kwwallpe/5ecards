@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { getContext } from 'svelte';
   import { Select, Label, type SelectOptionType } from 'flowbite-svelte';
+  import { getContext } from 'svelte';
+
   import { FontAccessor, FontRole, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
 
   interface Props {

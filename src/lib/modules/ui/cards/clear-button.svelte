@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { getContext } from 'svelte';
   import { Button } from 'flowbite-svelte';
   import { CloseCircleOutline } from 'flowbite-svelte-icons';
+  import { getContext } from 'svelte';
+
   import { Character, characterContextKey } from '$lib/shared/characterState.svelte';
 
   const id = 'clear-inputs-button';

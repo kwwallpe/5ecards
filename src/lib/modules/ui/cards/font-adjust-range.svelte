@@ -1,7 +1,8 @@
 <script lang="ts">
   import { getContext } from 'svelte';
-  import { FontAccessor, FontRole, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
+
   import Range from '$lib/modules/components/inputs/range.svelte';
+  import { FontAccessor, FontRole, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
 
   interface Props {
     role: FontRole;
