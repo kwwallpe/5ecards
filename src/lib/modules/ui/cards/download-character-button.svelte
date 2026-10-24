@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getContext } from 'svelte';
   import { Button } from 'flowbite-svelte';
-  import DownloadOutline from 'flowbite-svelte-icons/DownloadOutline.svelte';
+  import { DownloadOutline } from 'flowbite-svelte-icons';
   import { Character, characterContextKey } from '$lib/shared/characterState.svelte';
 
   const id = 'download-character-button';
@@ -27,7 +27,7 @@
   };
 </script>
 
-<Button shadow color="purple" {id} {onclick}>
-  <DownloadOutline class="me-2" />
+<Button {id} {onclick}>
+  <DownloadOutline />
   Download Character
 </Button>

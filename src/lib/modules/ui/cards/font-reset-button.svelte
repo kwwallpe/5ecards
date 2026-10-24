@@ -2,8 +2,7 @@
   import { getContext } from 'svelte';
 
   import { Button } from 'flowbite-svelte';
-  import UndoOutline from 'flowbite-svelte-icons/UndoOutline.svelte';
-  import CloseCircleOutline from 'flowbite-svelte-icons/CloseCircleOutline.svelte';
+  import { CloseCircleOutline, UndoOutline } from 'flowbite-svelte-icons';
   import { FontRole, FontAccessor, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
 
   interface Props {
@@ -28,11 +27,11 @@
   };
 </script>
 
-<Button shadow color="purple" aria-label={label} {id} {onclick}>
+<Button aria-label={label} {id} {onclick}>
   {#if all}
-    <CloseCircleOutline class="me-2" />
+    <CloseCircleOutline />
   {:else}
-    <UndoOutline class="me-2" />
+    <UndoOutline />
   {/if}
   {title}
 </Button>

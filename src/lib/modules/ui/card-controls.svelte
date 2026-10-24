@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { setContext } from 'svelte';
   import { FontRole } from '$lib/shared/fontState.svelte';
   import FontResetButton from '$lib/modules/ui/cards/font-reset-button.svelte';
   import InputAdjustRange from '$lib/modules/ui/cards/input-adjust-range.svelte';
@@ -27,7 +26,7 @@
     </div>
   </div>
   <div class="character-row">
-    <div class="head">Characters</div>
+    <div class="font-bold text-lg text-gray-700 dark:text-gray-200">Characters</div>
     <div class="buttons">
       <ClearButton />
       <DownloadCharacterButton />
@@ -66,7 +65,7 @@
     font-size: 19px;
     font-weight: bold;
     padding: 0;
-    color: indigo;
+    /* color: indigo; */
     overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;

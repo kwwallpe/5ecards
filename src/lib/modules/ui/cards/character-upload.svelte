@@ -32,12 +32,12 @@
   };
 </script>
 
-<Label for={id} class="font-bold text-[indigo] text-lg mt-4">Upload Character</Label>
+<Label for={id} class="font-bold text-lg mt-4">Upload Character</Label>
 <Fileupload
   clearable
   {id}
   accept=".json"
-  class="cursor-pointer border-2 border-purple-200 text-[indigo]"
+  class="cursor-pointer"
   {onchange}
   {clearableOnClick}
   bind:files={character.files}

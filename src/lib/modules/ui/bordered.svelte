@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
+  import type { Snippet } from 'svelte';
 
   interface Props {
     print?: boolean;
@@ -7,7 +7,7 @@
   }
 
   let { print = false, children }: Props = $props();
-  let printClass = $derived(print ? "" : "no-print");
+  let printClass = $derived(print ? '' : 'no-print');
 </script>
 
 <div class="bordered {printClass}">
@@ -25,13 +25,10 @@
     border: 0;
     max-width: 15.5in;
     min-width: 700px;
-    background-color: white;
+    background-color: var(--color-neutral-primary);
+    color: var(--color-body);
     border-radius: 15px 30px 5px 20px;
-    border: 4px solid transparent;
-    background-image: linear-gradient(to right, whitesmoke, whitesmoke),
-      linear-gradient(to bottom right, indigo, mistyrose);
-    background-clip: padding-box, border-box;
-    background-origin: padding-box, border-box;
+    border: 4px solid var(--color-brand);
   }
 
   @media print {
