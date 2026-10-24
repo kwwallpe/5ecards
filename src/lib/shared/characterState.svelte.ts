@@ -1,4 +1,3 @@
-import { createContext } from 'svelte';
 import { type Storable, StorageKey, StorageUtil } from './storage.ts';
 import { slugify } from './utils.svelte.ts';
 
@@ -8,7 +7,6 @@ export const characterNameId: string = 'character-name' as const;
 const NAME = 'name' as const;
 const TEXTS = 'texts' as const;
 const CHECKS = 'checks' as const;
-const FILES = 'files' as const;
 
 type CharacterTextRecord = Record<string, string>;
 type CharacterCheckRecord = Record<string, boolean>;
@@ -17,11 +15,11 @@ type CharacterSettings = {
   [NAME]: string;
   [TEXTS]: CharacterTextRecord;
   [CHECKS]: CharacterCheckRecord;
-  [FILES]: FileList | null | undefined;
 };
 
 export class Character implements Storable<Character> {
   settings: CharacterSettings = $state<CharacterSettings>(Character.defaultSettings);
+  files: FileList | undefined | null = $state();
 
   constructor(settings?: CharacterSettings | null) {
     this.settings = settings || Character.defaultSettings;
@@ -36,7 +34,6 @@ export class Character implements Storable<Character> {
       [NAME]: '',
       [TEXTS]: {},
       [CHECKS]: {},
-      [FILES]: undefined,
     };
   }
 
@@ -71,13 +68,6 @@ export class Character implements Storable<Character> {
     this.save();
   }
 
-  get files(): FileList | null | undefined {
-    return this.settings[FILES];
-  }
-  set files(files: FileList | null | undefined) {
-    this.settings[FILES] = files;
-  }
-
   get serialize(): string {
     return JSON.stringify(this.settings);
   }
@@ -90,7 +80,7 @@ export class Character implements Storable<Character> {
   clear(): void {
     this.settings = Character.defaultSettings;
     this.save();
-    this.settings[FILES] = new DataTransfer().files;
+    this.files = new DataTransfer().files;
   }
 
   save(): void {

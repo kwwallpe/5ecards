@@ -8,7 +8,7 @@
     padding: 0;
     width: 100%;
     height: 100%;
-    background-image: url("$lib/assets/d20.svg");
+    background-image: url('$lib/assets/d20.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 2in 2in;

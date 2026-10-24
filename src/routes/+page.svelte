@@ -87,22 +87,27 @@
   }
 
   #intro {
-    display: grid;
-    grid-template-columns: 1fr 450px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
   }
 
   #intro .words {
     display: block;
+    flex: 1 1 450px;
+  }
+
+  #intro .controls {
+    display: block;
+    flex: 0 0 450px;
   }
 
   #cards {
     grid-template-columns: 1fr;
     grid-template-rows: 2fr;
     gap: 0.25in;
-  }
-
-  .controls {
-    padding-left: 20px;
   }
 
   .six {

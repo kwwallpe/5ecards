@@ -28,6 +28,19 @@
              print:[print-color-adjust:exact]
              `,
     },
+    navbarUl: {
+      active: `text-gray-400 dark:text-gray-400
+               hover:text-black dark:hover:text-white
+               md:text-gray-500 md:dark:text-gray-400
+               md:hover:text-black dark:md:hover:text-white
+               font-bold
+      `,
+      nonActive: `text-fg-brand dark:text-fg-brand
+                  hover:text-fg-brand-strong dark:hover:text-fg-brand-strong
+                  md:text-fg-brand md:dark:text-fg-brand
+                  md:hover:text-fg-brand-strong dark:md:hover:text-fg-brand-strong
+                  `,
+    },
   };
 </script>
 
@@ -82,13 +95,29 @@
 
 <style>
   :global {
+    html,
     body {
-      margin: 0;
+      min-width: min-content;
+      min-height: 100vh;
+    }
+
+    body {
       padding: 0.25in;
-      border: 0;
-      background-image: linear-gradient(to bottom right, hotpink, rebeccapurple);
-      font-family: sans-serif;
-      min-height: calc(100vh - 0.5in);
+      background-image: linear-gradient(to bottom right, hotpink, purple);
+    }
+
+    .dark body {
+      background-image: linear-gradient(to bottom right, var(--color-pink-800), purple);
+    }
+
+    @media print {
+      body,
+      html {
+        background: white;
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
     }
   }
 </style>
