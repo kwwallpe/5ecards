@@ -1,29 +1,15 @@
 <script lang="ts">
   import { FontRole } from '$lib/shared/fontState.svelte';
-  import FontResetButton from '$lib/modules/ui/cards/font-reset-button.svelte';
-  import InputAdjustRange from '$lib/modules/ui/cards/input-adjust-range.svelte';
-  import LabelAdjustRange from '$lib/modules/ui/cards/label-adjust-range.svelte';
-  import InputFontSelect from '$lib/modules/ui/cards/input-font-select.svelte';
-  import LabelFontSelect from '$lib/modules/ui/cards/label-font-select.svelte';
   import ClearButton from './cards/clear-button.svelte';
   import DownloadCharacterButton from './cards/download-character-button.svelte';
   import CharacterUpload from './cards/character-upload.svelte';
+  import FontControls from './cards/font-controls.svelte';
 </script>
 
 <div class="card-controls">
   <div class="font-row">
-    <div>
-      <LabelFontSelect />
-      <LabelAdjustRange />
-      <FontResetButton role={FontRole.label} />
-      <FontResetButton role={FontRole.label} all={true} />
-    </div>
-    <div>
-      <InputFontSelect />
-      <InputAdjustRange />
-      <FontResetButton role={FontRole.input} />
-      <FontResetButton role={FontRole.input} all={true} />
-    </div>
+    <FontControls role={FontRole.label} />
+    <FontControls role={FontRole.input} />
   </div>
   <div class="character-row">
     <div class="font-bold text-lg text-gray-700 dark:text-gray-200">Characters</div>
@@ -42,7 +28,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    row-gap: 1.5em;
+    row-gap: 2em;
   }
 
   .font-row,
@@ -50,29 +36,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
-  }
-
-  .font-row div {
-    display: flex;
-    flex-direction: column;
-    align-items: right;
-    justify-content: top;
-    gap: 10px;
-    flex-basis: 70px;
-  }
-
-  .character-row .head {
-    font-size: 19px;
-    font-weight: bold;
-    padding: 0;
-    /* color: indigo; */
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
-    user-select: none;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1px;
   }
 
   .upload {

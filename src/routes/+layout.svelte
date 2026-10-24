@@ -2,7 +2,8 @@
   import './layout.css';
   import { page } from '$app/state';
   import { Navbar, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
-  import { Footer, FooterBrand, FooterCopyright, FooterIcon, FooterLink, FooterLinkGroup } from 'flowbite-svelte';
+  import { DarkMode } from 'flowbite-svelte';
+  import { Footer } from 'flowbite-svelte';
   import type { Snippet } from 'svelte';
   import { ThemeProvider } from 'flowbite-svelte';
   import favicon from '$lib/assets/d20.svg';
@@ -34,19 +35,23 @@
 
 <ThemeProvider {theme}>
   <Bordered>
-    <Navbar class="p-0 sm:px-0">
-      <NavHamburger class="p-0" />
-      <NavUl {activeUrl} classes={{ ul: 'p-0' }}>
-        <NavLi class="py-1 md:py-1" href="/">Home</NavLi>
-        <NavLi class="py-1 md:py-1" href="/help/">Help</NavLi>
+    <Navbar fluid class="p-0 sm:px-0">
+      <NavUl {activeUrl} classes={{ ul: 'p-0 sm:p-0' }}>
+        <NavLi class="py-0 md:py-0" href="/">Home</NavLi>
+        <NavLi class="py-0 md:py-0" href="/help/">Help</NavLi>
       </NavUl>
+      <NavHamburger />
+      <DarkMode class="py-1 sm:py-1" />
     </Navbar>
   </Bordered>
 
   {@render children()}
 
   <Bordered>
-    <Footer class="p-0 md:p-0 shadow-none rounded-none bg-transparent dark:bg-transparent">
+    <Footer
+      class="flex items-center justify-between
+      p-0 md:p-0 shadow-none rounded-none bg-transparent dark:bg-transparent"
+    >
       <span class="text-sm">
         <a href="https://lazarusrat.carrd.co">Lazarus Rat</a> is the one what done this.
       </span>
