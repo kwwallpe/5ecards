@@ -31,6 +31,8 @@
   --color-fg-brand: var(--color-purple-700);
   --color-fg-brand-strong: var(--color-purple-900);
 
+  --color-body: var(--color-gray-800);
+
   --color-card: var(--color-gray-100);
   --color-card-fg: black;
   --color-card-border: lightgray;
@@ -66,6 +68,8 @@
   --color-fg-brand-subtle: var(--color-purple-800);
   --color-fg-brand: var(--color-purple-300);
   --color-fg-brand-strong: var(--color-purple-50);
+
+  --color-body: var(--color-gray-300);
 
   --color-card: var(--color-gray-900);
   --color-card-fg: white;

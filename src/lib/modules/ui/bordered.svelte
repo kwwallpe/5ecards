@@ -10,7 +10,20 @@
   let { print = false, hidden = false, children }: Props = $props();
 </script>
 
-<div class={['bordered', { print }, { hidden }]}>
+<div
+  class={[
+    'bordered',
+    'p-8',
+    'mx-auto',
+    'my-0',
+    'text-body',
+    'bg-linear-to-r',
+    'from-neutral-primary-medium/60',
+    'to-neutral-primary-medium',
+    { print },
+    { hidden },
+  ]}
+>
   {@render children()}
 </div>
 
@@ -20,14 +33,7 @@
   }
 
   .bordered {
-    margin: 0 auto 20px auto;
-    padding: 20px;
-    border: 0;
     min-width: 5.75in;
-    background-color: var(--color-neutral-primary);
-    color: var(--color-body);
-    border-radius: 15px 30px 5px 20px;
-    border: 4px solid var(--color-brand-soft);
   }
 
   .hidden {
@@ -41,9 +47,7 @@
     .bordered {
       margin: 0;
       padding: 0;
-      border: 0;
       background-color: white;
-      border-radius: 0;
     }
   }
 </style>

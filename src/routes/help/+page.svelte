@@ -1,6 +1,7 @@
 <script lang="ts">
-  import folioPic from '$lib/assets/folio.jpeg';
+  import { resolve } from '$app/paths';
   import controlsPic from '$lib/assets/controls.png';
+  import folioPic from '$lib/assets/folio.jpeg';
   import Bordered from '$lib/modules/ui/bordered.svelte';
 </script>
 
@@ -13,6 +14,7 @@
   <h2>The Big Idea</h2>
   <div class="with-img">
     <p>
+      <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
       <a href={folioPic}>
         <img
           id="help-folio-image"
@@ -22,8 +24,8 @@
         />
       </a>
       I've never found a character sheet for 5th edition <abbr title="Dungeons & Dragons">D&D</abbr> that I like. So I
-      came up with my own solution. I print the nine cards from the <a href="/">home page</a> and place them in a 3 by 3
-      folio I made.
+      came up with my own solution. I print the nine cards from the <a href={resolve('/')}>home page</a> and place them in
+      a 3 by 3 folio I made.
     </p>
     <p>
       The cards use <a href="https://opendyslexic.org/">the OpenDyslexic fonts</a> by default. Please support them if you
