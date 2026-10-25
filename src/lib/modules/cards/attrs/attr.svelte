@@ -1,21 +1,19 @@
 <script lang="ts">
-  import Checkbox from "$lib/modules/components/inputs/checkbox.svelte";
-  import Text from "$lib/modules/components/inputs/text.svelte";
-
-  export type MainAttr = "str" | "dex" | "con" | "int" | "wis" | "cha";
+  import Checkbox from '$lib/modules/components/inputs/checkbox.svelte';
+  import Text from '$lib/modules/components/inputs/text.svelte';
+  import { type MainAttr, attrColor } from '$lib/shared/attrs';
 
   interface Props {
     id: string;
-    stat: MainAttr;
+    attr: MainAttr;
   }
 
-  let { id, stat }: Props = $props();
-  let color = $derived(`var(--${stat}, black)`);
-  let caps = $derived(stat.toUpperCase());
-  let attrId = $derived(`${id}=${stat}`);
+  let { id, attr }: Props = $props();
+  let caps = $derived(attr.toUpperCase());
+  let attrId = $derived(`${id}=${attr}`);
 </script>
 
-<div class="stat" style:color>{caps}</div>
+<div class="stat" style:color={attrColor(attr)}>{caps}</div>
 <div><Text id="{attrId}-stat" /></div>
 <div><Text id="{attrId}-mod" /></div>
 <div><Text id="{attrId}-save" /></div>
@@ -25,7 +23,7 @@
   div {
     text-align: right;
     padding-right: 5px;
-    border-right: 1px dotted lightgray;
+    border-right: 1px dotted var(--color-card-border);
   }
   div:first-of-type {
     padding-right: 5px;

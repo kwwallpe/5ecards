@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Banner from "$lib/modules/components/banners/banner.svelte";
-  import Card from "$lib/modules/cards/card.svelte";
-  import Text from "$lib/modules/components/inputs/text.svelte";
-  import LinedRows from "$lib/modules/lined-rows.svelte";
+  import Card from '$lib/modules/cards/card.svelte';
+  import Banner from '$lib/modules/components/banners/banner.svelte';
+  import Text from '$lib/modules/components/inputs/text.svelte';
+  import LinedRows from '$lib/modules/lined-rows.svelte';
 
-  const id = "profs-card";
+  const id = 'profs-card';
 </script>
 
 <Card {id}>
@@ -34,15 +34,6 @@
 </Card>
 
 <style>
-  :root {
-    --str: firebrick;
-    --dex: forestgreen;
-    --con: darkgoldenrod;
-    --int: dodgerblue;
-    --wis: darkorange;
-    --cha: darkviolet;
-  }
-
   .profs {
     grid-template-columns: 2.75in 1fr;
     column-gap: calc(1in / 16);
@@ -68,13 +59,13 @@
 
   .kits {
     grid-template-rows: 0.3in 1fr;
-    border-top: 1px dotted lightgray;
+    border-top: 1px dotted var(--color-card-border);
   }
 
   .languages {
     grid-template-rows: 0.3in 1fr;
     padding-left: 2px;
-    border-left: 1px dotted lightgray;
+    border-left: 1px dotted var(--color-card-border);
   }
 
   .kits div:first-of-type,

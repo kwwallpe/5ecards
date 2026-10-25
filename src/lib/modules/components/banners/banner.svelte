@@ -1,15 +1,15 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
+  import type { Snippet } from 'svelte';
 
   interface Props {
     isHeader?: boolean;
     columns?: string;
-    textAlign?: "left" | "center" | "right";
+    textAlign?: 'left' | 'center' | 'right';
     children: Snippet;
   }
 
-  let { isHeader = true, columns = "1fr", textAlign = "left", children }: Props = $props();
-  let borderClass = $derived(isHeader ? "head" : "foot");
+  let { isHeader = true, columns = '1fr', textAlign = 'left', children }: Props = $props();
+  let borderClass = $derived(isHeader ? 'head' : 'foot');
 </script>
 
 <div class={borderClass} style="grid-template-columns: {columns}; text-align: {textAlign}">
@@ -24,9 +24,9 @@
     gap: calc(1in / 16);
   }
   .head {
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid var(--color-card-border);
   }
   .foot {
-    border-top: 1px solid lightgray;
+    border-top: 1px solid var(--color-card-border);
   }
 </style>

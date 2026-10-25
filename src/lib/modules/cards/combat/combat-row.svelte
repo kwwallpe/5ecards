@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Checkbox from "$lib/modules/components/inputs/checkbox.svelte";
-  import Text from "$lib/modules/components/inputs/text.svelte";
+  import Checkbox from '$lib/modules/components/inputs/checkbox.svelte';
+  import Text from '$lib/modules/components/inputs/text.svelte';
 
   interface Props {
     id: string;
@@ -8,7 +8,7 @@
     text?: string;
   }
 
-  let { id, level, text = "" }: Props = $props();
+  let { id, level, text = '' }: Props = $props();
   let spellSlots = $derived(level == 1 ? 4 : level <= 4 ? 3 : level <= 7 ? 2 : 1);
 </script>
 
@@ -46,10 +46,10 @@
     grid-template-columns: repeat(4, calc(13in / 16));
     text-align: right;
     gap: calc(1in / 16);
-    border-bottom: 1px dotted lightgray;
+    border-bottom: 1px dotted var(--color-card-border);
   }
   .atk-etc div {
-    border-right: 1px dotted lightgray;
+    border-right: 1px dotted var(--color-card-border);
     padding-right: 1px;
   }
   .atk-etc div:last-of-type,
@@ -59,7 +59,7 @@
 
   .spells {
     grid-template-columns: 2fr 2fr;
-    border-left: 1px dotted lightgray;
+    border-left: 1px dotted var(--color-card-border);
   }
 
   .spells div:first-of-type {

@@ -35,8 +35,6 @@
     display: grid;
     overflow: hidden;
     white-space: nowrap;
-    background: white;
-    color: black;
   }
   .card {
     aspect-ratio: var(--c-width) / var(--c-height);
@@ -44,10 +42,11 @@
     min-width: var(--c-width);
     height: var(--c-height);
     max-height: var(--c-height);
-    outline: 1px solid lightgray;
+    outline: 1px solid var(--color-card-border);
     margin: auto;
     display: grid;
-    background-color: white;
+    background-color: var(--color-card);
+    color: var(--color-card-fg);
   }
 
   .content {

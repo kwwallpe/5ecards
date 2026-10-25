@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Card from "$lib/modules/cards/card.svelte";
-  import Banner from "$lib/modules/components/banners/banner.svelte";
-  import Text from "$lib/modules/components/inputs/text.svelte";
-  import LinedRows from "$lib/modules/lined-rows.svelte";
+  import Card from '$lib/modules/cards/card.svelte';
+  import Banner from '$lib/modules/components/banners/banner.svelte';
+  import Text from '$lib/modules/components/inputs/text.svelte';
+  import LinedRows from '$lib/modules/lined-rows.svelte';
 
-  const id = "items-card";
+  const id = 'items-card';
 </script>
 
 <Card {id}>
@@ -32,6 +32,6 @@
   }
 
   div:first-child {
-    border-right: 1px solid lightgray;
+    border-right: 1px solid var(--color-card-border);
   }
 </style>

@@ -1,13 +1,13 @@
 <script lang="ts">
-  import Text from "./components/inputs/text.svelte";
+  import Text from './components/inputs/text.svelte';
 
   interface Props {
     id: string;
     rows?: number;
-    textAlign?: "left" | "center" | "right";
+    textAlign?: 'left' | 'center' | 'right';
   }
 
-  let { id, rows = 12, textAlign = "left" }: Props = $props();
+  let { id, rows = 12, textAlign = 'left' }: Props = $props();
 </script>
 
 <div class="lined-row" style="grid-template-rows: repeat({rows}, 1fr);">
@@ -18,6 +18,6 @@
 
 <style>
   .lined-row div {
-    border-bottom: 1px dotted lightgray;
+    border-bottom: 1px dotted var(--color-card-border);
   }
 </style>

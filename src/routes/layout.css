@@ -30,20 +30,33 @@
   --color-fg-brand-subtle: var(--color-purple-200);
   --color-fg-brand: var(--color-purple-700);
   --color-fg-brand-strong: var(--color-purple-900);
+
+  --color-card: var(--color-gray-100);
+  --color-card-fg: black;
+  --color-card-border: lightgray;
+}
+
+@theme static {
+  --color-str: firebrick;
+  --color-dex: forestgreen;
+  --color-con: darkgoldenrod;
+  --color-int: dodgerblue;
+  --color-wis: darkorange;
+  --color-cha: darkviolet;
 }
 
 .dark {
   --color-primary-50: var(--color-purple-950);
   --color-primary-100: var(--color-purple-900);
-  --color-primary-200: var(--color-purple-800);
-  --color-primary-300: var(--color-purple-700);
-  --color-primary-400: var(--color-purple-600);
-  --color-primary-500: var(--color-purple-500);
-  --color-primary-600: var(--color-purple-400);
-  --color-primary-700: var(--color-purple-300);
-  --color-primary-800: var(--color-purple-200);
-  --color-primary-900: var(--color-purple-100);
-  --color-primary-950: var(--color-purple-50);
+  --color-primary-200: var(--color-purple-900);
+  --color-primary-300: var(--color-purple-800);
+  --color-primary-400: var(--color-purple-800);
+  --color-primary-500: var(--color-purple-700);
+  --color-primary-600: var(--color-purple-700);
+  --color-primary-700: var(--color-purple-500);
+  --color-primary-800: var(--color-purple-500);
+  --color-primary-900: var(--color-purple-400);
+  --color-primary-950: var(--color-purple-200);
 
   --color-brand-softer: var(--color-purple-950);
   --color-brand-soft: var(--color-purple-800);
@@ -53,6 +66,17 @@
   --color-fg-brand-subtle: var(--color-purple-800);
   --color-fg-brand: var(--color-purple-300);
   --color-fg-brand-strong: var(--color-purple-50);
+
+  --color-card: var(--color-gray-900);
+  --color-card-fg: white;
+  --color-card-border: var(--color-gray-500);
+
+  --color-str: lightcoral;
+  --color-dex: darkseagreen;
+  --color-con: goldenrod;
+  --color-int: deepskyblue;
+  --color-wis: darkorange;
+  --color-cha: violet;
 }
 
 @layer base {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
+  import type { Snippet } from 'svelte';
 
   interface Props {
     isHeader?: boolean;
@@ -8,8 +8,8 @@
   }
 
   let { isHeader = false, noBorder = false, children }: Props = $props();
-  let borderless = $derived(noBorder ? "no-border" : "");
-  let rowClass = $derived(isHeader ? "attr-header" : "attr-row");
+  let borderless = $derived(noBorder ? 'no-border' : '');
+  let rowClass = $derived(isHeader ? 'attr-header' : 'attr-row');
 </script>
 
 <div class={[rowClass, { borderless }]}>
@@ -24,7 +24,7 @@
     vertical-align: middle;
     font-size: 0.9em;
     margin: auto 0;
-    border-bottom: 1px dotted lightgray;
+    border-bottom: 1px dotted var(--color-card-border);
   }
   .attr-header {
     font-size: 0.75em;

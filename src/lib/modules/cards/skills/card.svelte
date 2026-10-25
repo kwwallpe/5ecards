@@ -1,9 +1,10 @@
 <script lang="ts">
-  import Banner from "$lib/modules/components/banners/banner.svelte";
-  import Card from "$lib/modules/cards/card.svelte";
-  import Skill from "./skill-row.svelte";
+  import Card from '$lib/modules/cards/card.svelte';
+  import Banner from '$lib/modules/components/banners/banner.svelte';
 
-  const id = "skills-card";
+  import SkillRow from './skill-row.svelte';
+
+  const id = 'skills-card';
 </script>
 
 <Card {id}>
@@ -12,26 +13,26 @@
   </Banner>
   <div class="cols-2">
     <div class="skills">
-      <Skill attr="str" name="Athletics" />
-      <Skill attr="dex" name="Acrobatics" />
-      <Skill attr="dex" name="Sleight o' Hand" />
-      <Skill attr="dex" name="Stealth" />
-      <Skill attr="int" name="Arcana" />
-      <Skill attr="int" name="History" />
-      <Skill attr="int" name="Investigation" />
-      <Skill attr="int" name="Nature" />
-      <Skill attr="int" name="Religion" noBorder={true} />
+      <SkillRow attr="str" name="Athletics" />
+      <SkillRow attr="dex" name="Acrobatics" />
+      <SkillRow attr="dex" name="Sleight o' Hand" />
+      <SkillRow attr="dex" name="Stealth" />
+      <SkillRow attr="int" name="Arcana" />
+      <SkillRow attr="int" name="History" />
+      <SkillRow attr="int" name="Investigation" />
+      <SkillRow attr="int" name="Nature" />
+      <SkillRow attr="int" name="Religion" noBorder={true} />
     </div>
     <div class="skills">
-      <Skill attr="cha" name="Deception" />
-      <Skill attr="cha" name="Intimidation" />
-      <Skill attr="cha" name="Performance" />
-      <Skill attr="cha" name="Persuasion" />
-      <Skill attr="wis" name="Animal Stuff" />
-      <Skill attr="wis" name="Insight" />
-      <Skill attr="wis" name="Medicine" />
-      <Skill attr="wis" name="Perception" />
-      <Skill attr="wis" name="Survival" noBorder={true} />
+      <SkillRow attr="cha" name="Deception" />
+      <SkillRow attr="cha" name="Intimidation" />
+      <SkillRow attr="cha" name="Performance" />
+      <SkillRow attr="cha" name="Persuasion" />
+      <SkillRow attr="wis" name="Animal Stuff" />
+      <SkillRow attr="wis" name="Insight" />
+      <SkillRow attr="wis" name="Medicine" />
+      <SkillRow attr="wis" name="Perception" />
+      <SkillRow attr="wis" name="Survival" noBorder={true} />
     </div>
   </div>
 </Card>

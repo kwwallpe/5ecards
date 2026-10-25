@@ -50,14 +50,14 @@
     input[type='text']:not(:disabled):hover {
       background-color: mistyrose;
       outline-style: dotted;
-      outline-color: lightgray;
+      outline-color: var(--color-card-border);
     }
   }
 
   input[type='text']:focus-visible {
     background-color: ivory;
     outline-style: dotted;
-    outline-color: lightgray;
+    outline-color: var(--color-card-border);
     outline-width: 2px;
   }
 

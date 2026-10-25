@@ -24,7 +24,8 @@
              m-auto focus:ring-0
              bg-none checked:bg-none
              bg-transparent dark:bg-transparent
-             text-black
+             border-gray-400 dark:border-gray-500
+             text-black dark:text-white
              print:[print-color-adjust:exact]
              `,
     },
