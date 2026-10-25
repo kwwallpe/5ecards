@@ -7,7 +7,6 @@
   import ColSingle from '$lib/modules/cards/col-one/card.svelte';
   import ColDouble from '$lib/modules/cards/col-two/card.svelte';
   import CombatCard from '$lib/modules/cards/combat/card.svelte';
-  import Dummy from '$lib/modules/cards/dummy/card.svelte';
   import ItemsCard from '$lib/modules/cards/items/card.svelte';
   import ProfsCard from '$lib/modules/cards/profs/card.svelte';
   import SkillsCard from '$lib/modules/cards/skills/card.svelte';
@@ -55,22 +54,16 @@
 
 <Bordered print={true}>
   <div id="cards">
-    <div class="six" id="page-1">
-      <AttrsCard />
-      <SkillsCard />
-      <ProfsCard />
-      <CombatCard />
-      <ColSingle id="features-card" header="Features" />
-      <Dummy />
-    </div>
-    <div class="six" id="page-2">
-      <ColSingle id="actions-card" header="Actions" />
-      <ColDouble id="bonus-react-card" header1="Bonus Actions" header2="Reactions" />
-      <ItemsCard />
-      <ColSingle id="blank-card-1" />
-      <ColSingle id="blank-card-2" />
-      <Dummy />
-    </div>
+    <AttrsCard />
+    <SkillsCard />
+    <ProfsCard />
+    <CombatCard />
+    <ColSingle id="features-card" header="Features" />
+    <ColSingle id="actions-card" header="Actions" />
+    <ColDouble id="bonus-react-card" header1="Bonus Actions" header2="Reactions" />
+    <ItemsCard />
+    <ColSingle id="blank-card-1" />
+    <ColSingle id="blank-card-2" />
   </div>
 </Bordered>
 
@@ -105,16 +98,10 @@
   }
 
   #cards {
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 0.25in;
-  }
-
-  .six {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--c-width), 1fr));
-    margin: 0;
-    gap: 15px;
   }
 
   @media print {
@@ -123,17 +110,6 @@
       margin: 0;
       padding: 0;
       border-radius: 0;
-    }
-
-    .six {
-      grid-template-columns: repeat(2, var(--c-width));
-      grid-template-rows: repeat(3, var(--c-height));
-      width: 8in;
-    }
-
-    .six:first-of-type {
-      min-height: 11in;
-      break-after: always;
     }
   }
 </style>

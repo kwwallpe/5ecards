@@ -18,7 +18,7 @@
   let items: SelectOptionType<string>[] = FontAccessor.fontNames.map((v) => ({ value: v, name: v }));
 </script>
 
-<Label class="font-bold text-lg" for={id}>
+<Label for={id}>
   Card {capped} Font
   <Select {id} {items} bind:value={fontAccessor.font} classes={{ select: 'border-2 border-(--color-purple-700)' }} />
 </Label>

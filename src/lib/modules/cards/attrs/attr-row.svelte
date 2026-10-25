@@ -8,11 +8,10 @@
   }
 
   let { isHeader = false, noBorder = false, children }: Props = $props();
-  let borderless = $derived(noBorder ? 'no-border' : '');
   let rowClass = $derived(isHeader ? 'attr-header' : 'attr-row');
 </script>
 
-<div class={[rowClass, { borderless }]}>
+<div class={[rowClass, { borderless: noBorder }]}>
   {@render children()}
 </div>
 

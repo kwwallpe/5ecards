@@ -10,11 +10,10 @@
   }
 
   let { attr, name, noBorder = false }: Props = $props();
-  let borderless = $derived(noBorder ? 'no-border' : '');
   let id = $derived(name.toLowerCase().replace(/[\W_]+/g, '-'));
 </script>
 
-<div class={['skill-row', { borderless }]}>
+<div class={['skill-row', { borderless: noBorder }]}>
   <div><Checkbox id="skill-{id}-prof" /></div>
   <div style:color={attrColor(attr)}>{name}</div>
   <div><Text id="skill-{id}" /></div>

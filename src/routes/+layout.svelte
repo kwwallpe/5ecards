@@ -29,6 +29,23 @@
              print:[print-color-adjust:exact]
              `,
     },
+    input: {
+      base: 'h-full',
+      input: `box-border block w-full m-0 px-[2px] py-0
+              border-0 rounded-none
+              bg-transparent dark:bg-transparent text-gray-800 dark:text-gray-300
+              focus:ring-0
+              hover:not-disabled:bg-gray-300 hover:dark:not-disabled:bg-gray-700
+              focus-visible:bg-gray-300 focus-visible:dark:bg-gray-700
+              motion-reduce:transition-none
+              print:bg-transparent
+              print:outline-none
+              print:[print-color-adjust:exact]
+              print:text-gray-800
+              `,
+    },
+    label: `font-bold text-lg m-0 p-0`,
+    navbar: `p-0 sm:p-0`,
     navbarUl: {
       active: `text-gray-400 dark:text-gray-400
                hover:text-black dark:hover:text-white
@@ -42,6 +59,7 @@
                   md:hover:text-fg-brand-strong dark:md:hover:text-fg-brand-strong
                   `,
     },
+    navbarLi: `py-0 md:py-0 text-lg`,
   };
 </script>
 
@@ -59,10 +77,10 @@
 
 <ThemeProvider {theme}>
   <Bordered>
-    <Navbar fluid class="p-0 sm:px-0">
+    <Navbar fluid>
       <NavUl {activeUrl} classes={{ ul: 'p-0 sm:p-0' }}>
-        <NavLi class="py-0 md:py-0 text-lg" href="/">Home</NavLi>
-        <NavLi class="py-0 md:py-0 text-lg" href="/help/">Help</NavLi>
+        <NavLi href="/">Home</NavLi>
+        <NavLi href="/help/">Help</NavLi>
       </NavUl>
       <NavHamburger />
       <DarkMode class="border py-1 sm:py-1" />

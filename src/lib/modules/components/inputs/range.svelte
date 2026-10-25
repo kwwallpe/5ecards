@@ -28,10 +28,10 @@
 <div>
   <div class="range">
     <div>
-      <Label class="font-bold text-lg m-0 p-0" for={id}>{label}</Label>
+      <Label for={id}>{label}</Label>
     </div>
-    <div class="font-bold text-lg m-0 p-0">
-      {percent}
+    <div>
+      <Label for={id}>{percent}</Label>
     </div>
   </div>
   <Range {id} {min} {max} {step} bind:value {onchange} />

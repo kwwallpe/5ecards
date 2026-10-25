@@ -8,10 +8,9 @@
   }
 
   let { label, noBorder = false, children }: Props = $props();
-  let borderless = $derived(noBorder ? 'no-border' : '');
 </script>
 
-<div class={['ac-etc-row', { borderless }]}>
+<div class={['ac-etc-row', { borderless: noBorder }]}>
   <div>{label}</div>
   <div>
     {@render children()}

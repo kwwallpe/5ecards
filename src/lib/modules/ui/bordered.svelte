@@ -7,10 +7,9 @@
   }
 
   let { print = false, children }: Props = $props();
-  let printClass = $derived(print ? '' : 'no-print');
 </script>
 
-<div class="bordered {printClass}">
+<div class={['bordered', { printable: print }]}>
   {@render children()}
 </div>
 
@@ -23,16 +22,15 @@
     margin: 0 auto 20px auto;
     padding: 20px;
     border: 0;
-    max-width: 15.5in;
     min-width: 5.75in;
     background-color: var(--color-neutral-primary);
     color: var(--color-body);
     border-radius: 15px 30px 5px 20px;
-    border: 4px solid var(--color-brand);
+    border: 4px solid var(--color-brand-soft);
   }
 
   @media print {
-    .no-print {
+    div:not(.printable) {
       display: none;
     }
     .bordered {

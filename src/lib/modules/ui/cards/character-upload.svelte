@@ -33,7 +33,7 @@
   };
 </script>
 
-<Label for={id} class="font-bold text-lg mt-4">Upload Character</Label>
+<Label for={id} class="mt-4">Upload Character</Label>
 <Fileupload
   clearable
   {id}
