@@ -39,11 +39,10 @@
 
 <style>
   .range {
-    display: grid;
-    grid-template-columns: 1fr fit-content(1em);
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: space-between;
     margin-bottom: 5px;
-  }
-  .range div:last-of-type {
-    text-align: right;
   }
 </style>

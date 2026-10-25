@@ -61,8 +61,8 @@
   <Bordered>
     <Navbar fluid class="p-0 sm:px-0">
       <NavUl {activeUrl} classes={{ ul: 'p-0 sm:p-0' }}>
-        <NavLi class="py-0 md:py-0" href="/">Home</NavLi>
-        <NavLi class="py-0 md:py-0" href="/help/">Help</NavLi>
+        <NavLi class="py-0 md:py-0 text-lg" href="/">Home</NavLi>
+        <NavLi class="py-0 md:py-0 text-lg" href="/help/">Help</NavLi>
       </NavUl>
       <NavHamburger />
       <DarkMode class="border py-1 sm:py-1" />
