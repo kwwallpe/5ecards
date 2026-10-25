@@ -20,5 +20,5 @@
 
 <Label for={id}>
   Card {capped} Font
-  <Select {id} {items} bind:value={fontAccessor.font} classes={{ select: 'border-2 border-(--color-purple-700)' }} />
+  <Select {id} {items} bind:value={fontAccessor.font} />
 </Label>

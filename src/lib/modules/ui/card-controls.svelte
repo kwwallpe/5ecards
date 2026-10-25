@@ -8,38 +8,42 @@
 </script>
 
 <div class="card-controls">
-  <div class="font-row">
-    <FontControls role={FontRole.label} />
-    <FontControls role={FontRole.input} />
-  </div>
-  <div class="character-row">
-    <div class="font-bold text-lg text-gray-700 dark:text-gray-200">Characters</div>
+  <div class="character">
+    <div><h2>Characters</h2></div>
     <div class="buttons">
       <ClearButton />
       <DownloadCharacterButton />
     </div>
-    <div class="upload">
+    <div>
       <CharacterUpload />
     </div>
+  </div>
+  <div class="font">
+    <div class="spanner"><h2>Fonts</h2></div>
+    <FontControls role={FontRole.label} />
+    <FontControls role={FontRole.input} />
   </div>
 </div>
 
 <style>
   .card-controls {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    row-gap: 2em;
+    display: flex;
+    gap: 2em;
   }
 
-  .font-row,
-  .character-row .buttons {
+  .buttons {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  .font {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1em;
+    column-gap: 1em;
   }
 
-  .upload {
+  .spanner {
     grid-column: 1 / -1;
   }
 </style>

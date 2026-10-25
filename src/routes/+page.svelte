@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { setContext } from 'svelte';
+  import { getContext, setContext } from 'svelte';
 
-  import { resolve } from '$app/paths';
-  import pdf from '$lib/assets/nine_cards.pdf';
   import AttrsCard from '$lib/modules/cards/attrs/card.svelte';
   import ColSingle from '$lib/modules/cards/col-one/card.svelte';
   import ColDouble from '$lib/modules/cards/col-two/card.svelte';
@@ -13,6 +11,7 @@
   import Bordered from '$lib/modules/ui/bordered.svelte';
   import CardControls from '$lib/modules/ui/card-controls.svelte';
   import { CharacterAccessor, characterContextKey } from '$lib/shared/characterState.svelte';
+  import { ControlVisibility, controlVisibilityContextKey } from '$lib/shared/controlVisibility.svelte';
   import { FontAccessor, fontSettingsContextKey } from '$lib/shared/fontState.svelte';
 
   let fontSettings = FontAccessor.settingsFromStorage();
@@ -20,6 +19,8 @@
 
   setContext(fontSettingsContextKey, fontSettings);
   setContext(characterContextKey, character);
+
+  let controlVisibility: ControlVisibility = getContext(controlVisibilityContextKey);
 </script>
 
 <svelte:head>
@@ -27,25 +28,8 @@
 </svelte:head>
 
 <Bordered>
-  <div id="intro">
-    <div class="words">
-      <h1>D&D 5e Character Index Cards</h1>
-      <h2>tl; dr</h2>
-      <ol class="list-outside list-decimal ml-8">
-        <li>
-          Optional: Fill out any of the text boxes/check boxes you want to (practically anything that doesn't already
-          have text).
-        </li>
-        <li>Print the following two pages on US Letter cardstock.</li>
-        <li>Cut the cards apart.</li>
-        <li>Use them as a character sheet replacement.</li>
-      </ol>
-      <p>
-        <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-        Or just print <a href={pdf}>the PDF version</a>. There's
-        <a href={resolve('/help')}>help and more detail</a> available if you're interested.
-      </p>
-    </div>
+  <div id="controls" class={[{ hidden: !controlVisibility.setting }]}>
+    <div><h1>D&D 5e Character Index Cards</h1></div>
     <div class="controls">
       <CardControls />
     </div>
@@ -83,22 +67,19 @@
     initial-value: calc(3in - 2px);
   }
 
-  #intro {
+  #controls {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1em;
   }
-
-  #intro .words {
-    display: block;
-    flex: 1 1 450px;
+  #controls.hidden {
+    display: none;
   }
 
-  #intro .controls {
+  #controls .controls {
     display: block;
-    flex: 0 0 450px;
   }
 
   .page {

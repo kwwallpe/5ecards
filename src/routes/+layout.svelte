@@ -1,11 +1,12 @@
 <script lang="ts">
   import './layout.css';
-  import { Navbar, NavLi, NavUl, NavHamburger, DarkMode, Footer, ThemeProvider } from 'flowbite-svelte';
-  import type { Snippet } from 'svelte';
+  import { Navbar, NavLi, NavUl, NavHamburger, DarkMode, Footer, ThemeProvider, Toggle } from 'flowbite-svelte';
+  import { setContext, type Snippet } from 'svelte';
 
   import { page } from '$app/state';
   import favicon from '$lib/assets/d20.svg';
   import Bordered from '$lib/modules/ui/bordered.svelte';
+  import { ControlVisibility, controlVisibilityContextKey } from '$lib/shared/controlVisibility.svelte';
 
   interface Props {
     children: Snippet;
@@ -15,7 +16,7 @@
   let activeUrl = $derived(page.url.pathname);
 
   const theme = {
-    button: { base: 'font-bold gap-1' },
+    button: { base: `font-bold gap-1 rounded-sm whitespace-nowrap` },
     checkbox: {
       base: `rounded-none 
              w-[var(--size,calc(1in/8))]
@@ -28,6 +29,23 @@
              text-black dark:text-white
              print:[print-color-adjust:exact]
              `,
+    },
+    fileupload: {
+      base: `rounded-sm
+             border-2
+             border-primary-700 dark:border-primary-600
+             focus:border-primary-700 focus:ring-primary-700
+             focus:dark:border-primary-700 focus:dark:ring-primary-700
+             focus:outline-2 focus:outline-solid
+             focus:outline-primary-700 focus:dark:outline-primary-700
+             focus:outline-offset-1
+             file:bg-primary-700 dark:file:bg-primary-600
+             file:hover:bg-primary-800 dark:file:hover:bg-primary-700
+             file:text-white file:font-bold
+             file:border-0 file:px-3 file:py-2 file:me-3 file:ms-0
+             file:cursor-pointer
+      `,
+      wrapper: `rounded-sm`,
     },
     input: {
       base: 'h-full',
@@ -60,7 +78,17 @@
                   `,
     },
     navbarLi: `py-0 md:py-0 text-lg`,
+    select: {
+      base: `rounded-sm`,
+      select: `border-2
+               border-purple-700 dark:border-purple-700
+               rounded-sm`,
+    },
   };
+
+  let showCtrlToggle = $derived(page.route.id === '/');
+  let controlVisibility = new ControlVisibility();
+  setContext(controlVisibilityContextKey, controlVisibility);
 </script>
 
 <svelte:head>
@@ -83,6 +111,14 @@
         <NavLi href="/help/">Help</NavLi>
       </NavUl>
       <NavHamburger />
+      {#if showCtrlToggle}
+        <Toggle id="control-visibility-toggle" bind:checked={controlVisibility.setting}>
+          {#snippet offLabel()}
+            controls hidden
+          {/snippet}
+          controls visible
+        </Toggle>
+      {/if}
       <DarkMode class="border py-1 sm:py-1" />
     </Navbar>
   </Bordered>
@@ -126,7 +162,7 @@
     }
 
     .dark body {
-      background-image: linear-gradient(to bottom right, var(--color-pink-800), purple);
+      background-image: linear-gradient(to bottom right, var(--color-pink-800), indigo);
     }
 
     @media print {
