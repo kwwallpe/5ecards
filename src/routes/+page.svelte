@@ -54,16 +54,20 @@
 
 <Bordered print={true}>
   <div id="cards">
-    <AttrsCard />
-    <SkillsCard />
-    <ProfsCard />
-    <CombatCard />
-    <ColSingle id="features-card" header="Features" />
-    <ColSingle id="actions-card" header="Actions" />
-    <ColDouble id="bonus-react-card" header1="Bonus Actions" header2="Reactions" />
-    <ItemsCard />
-    <ColSingle id="blank-card-1" />
-    <ColSingle id="blank-card-2" />
+    <div class="page">
+      <AttrsCard />
+      <SkillsCard />
+      <ProfsCard />
+      <CombatCard />
+      <ColSingle id="features-card" header="Features" />
+    </div>
+    <div class="page">
+      <ColSingle id="actions-card" header="Actions" />
+      <ColDouble id="bonus-react-card" header1="Bonus Actions" header2="Reactions" />
+      <ItemsCard />
+      <ColSingle id="blank-card-1" />
+      <ColSingle id="blank-card-2" />
+    </div>
   </div>
 </Bordered>
 
@@ -97,6 +101,10 @@
     flex: 0 0 450px;
   }
 
+  .page {
+    display: contents;
+  }
+
   #cards {
     display: flex;
     flex-direction: row;
@@ -104,12 +112,57 @@
     gap: 0.25in;
   }
 
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
   @media print {
     #cards {
-      width: 8in;
-      margin: 0;
+      display: block;
       padding: 0;
       border-radius: 0;
+    }
+
+    .page {
+      box-sizing: border-box;
+      width: 8.5in;
+      height: 11in;
+      padding: 0.25in;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 5in 3in;
+      grid-template-rows: repeat(10, 1in);
+      break-after: page;
+    }
+    .page:last-child {
+      break-after: auto;
+    }
+
+    .page > :global(.card) {
+      margin: 1px;
+      align-self: start;
+      justify-self: start;
+    }
+    .page > :global(:nth-child(1)) {
+      grid-area: 1 / 1 / 4 / 2;
+    }
+    .page > :global(:nth-child(2)) {
+      grid-area: 4 / 1 / 7 / 2;
+    }
+    .page > :global(:nth-child(3)) {
+      grid-area: 7 / 1 / 10 / 2;
+    }
+    .page > :global(:nth-child(4)) {
+      grid-area: 1 / 2 / 6 / 3;
+      grid-row: 1 / 6;
+    }
+    .page > :global(:nth-child(5)) {
+      grid-area: 6 / 2 / 11 / 3;
+    }
+    .page > :global(:nth-child(n + 4)) {
+      transform-origin: top left;
+      transform: translateX(calc(3in - 2px)) rotate(90deg);
     }
   }
 </style>

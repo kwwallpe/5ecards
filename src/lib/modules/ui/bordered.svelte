@@ -38,6 +38,7 @@
       padding: 0;
       border: 0;
       background-color: white;
+      border-radius: 0;
     }
   }
 </style>

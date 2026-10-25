@@ -54,26 +54,4 @@
     width: calc(5in - (1in / 4));
     height: calc(3in - (1in / 4));
   }
-
-  @media print {
-    .card:nth-of-type(1) {
-      transform: translate(-2px, 0);
-    }
-
-    .card:nth-of-type(2) {
-      transform: translate(calc(-2px - var(--c-width) - 15px), calc(var(--c-height) + 1px));
-    }
-
-    .card:nth-of-type(3) {
-      transform: translate(-2px, calc(var(--c-height) + 2px - 15px));
-    }
-
-    .card:nth-of-type(4) {
-      transform: translate(calc(-1px - 1in - 15px), calc(2px - 2in - 15px)) rotate(90deg);
-    }
-
-    .card:nth-of-type(5) {
-      transform: translate(calc(4in - 3px), calc(6px - 0.5in + 15px)) rotate(90deg);
-    }
-  }
 </style>

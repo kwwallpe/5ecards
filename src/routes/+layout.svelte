@@ -131,8 +131,11 @@
 
     @media print {
       body,
-      html {
+      html,
+      .dark body,
+      .dark html {
         background: white;
+        background-image: none;
         padding: 0;
         margin: 0;
         border: 0;
