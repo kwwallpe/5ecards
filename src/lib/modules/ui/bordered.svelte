@@ -3,13 +3,14 @@
 
   interface Props {
     print?: boolean;
+    hidden?: boolean;
     children: Snippet;
   }
 
-  let { print = false, children }: Props = $props();
+  let { print = false, hidden = false, children }: Props = $props();
 </script>
 
-<div class={['bordered', { printable: print }]}>
+<div class={['bordered', { print }, { hidden }]}>
   {@render children()}
 </div>
 
@@ -29,8 +30,12 @@
     border: 4px solid var(--color-brand-soft);
   }
 
+  .hidden {
+    display: none;
+  }
+
   @media print {
-    div:not(.printable) {
+    div:not(.print) {
       display: none;
     }
     .bordered {

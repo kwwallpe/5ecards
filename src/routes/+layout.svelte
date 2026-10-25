@@ -106,17 +106,17 @@
 <ThemeProvider {theme}>
   <Bordered>
     <Navbar fluid>
+      <NavHamburger />
       <NavUl {activeUrl} classes={{ ul: 'p-0 sm:p-0' }}>
         <NavLi href="/">Home</NavLi>
         <NavLi href="/help/">Help</NavLi>
       </NavUl>
-      <NavHamburger />
       {#if showCtrlToggle}
         <Toggle id="control-visibility-toggle" bind:checked={controlVisibility.setting}>
-          {#snippet offLabel()}
-            controls hidden
-          {/snippet}
           controls visible
+          {#snippet offLabel()}
+            controls shown
+          {/snippet}
         </Toggle>
       {/if}
       <DarkMode class="border py-1 sm:py-1" />

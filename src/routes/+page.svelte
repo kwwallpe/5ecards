@@ -21,14 +21,15 @@
   setContext(characterContextKey, character);
 
   let controlVisibility: ControlVisibility = getContext(controlVisibilityContextKey);
+  let hidden = $derived(!controlVisibility.setting);
 </script>
 
 <svelte:head>
   <title>D&D 5e Character Index Cards</title>
 </svelte:head>
 
-<Bordered>
-  <div id="controls" class={[{ hidden: !controlVisibility.setting }]}>
+<Bordered {hidden}>
+  <div id="controls">
     <div><h1>D&D 5e Character Index Cards</h1></div>
     <div class="controls">
       <CardControls />
@@ -73,9 +74,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1em;
-  }
-  #controls.hidden {
-    display: none;
   }
 
   #controls .controls {
