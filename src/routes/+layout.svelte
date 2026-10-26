@@ -1,9 +1,10 @@
 <script lang="ts">
   import './layout.css';
   import { Navbar, NavLi, NavUl, NavHamburger, DarkMode, Footer, ThemeProvider, Toggle } from 'flowbite-svelte';
+  import { ArrowUpRightFromSquareOutline } from 'flowbite-svelte-icons';
   import { setContext, type Snippet } from 'svelte';
 
-  import { resolve } from '$app/paths';
+  import { asset, resolve } from '$app/paths';
   import { page } from '$app/state';
   import favicon from '$lib/assets/d20.svg';
   import { ControlVisibility, controlVisibilityContextKey } from '$lib/shared/controlVisibility.svelte';
@@ -41,9 +42,12 @@
       <NavLi href={resolve('/')}>Home</NavLi>
       <NavLi href={resolve('/help/')}>Help</NavLi>
       <NavLi href={resolve('/changes/')}>Changes</NavLi>
+      <NavLi href={asset('/ten_cards.pdf')} target="_blank"
+        >PDF <ArrowUpRightFromSquareOutline class="inline-block align-middle" size="sm" /></NavLi
+      >
     </NavUl>
     {#if showCtrlToggle}
-      <Toggle id="control-visibility-toggle" bind:checked={controlVisibility.setting}>
+      <Toggle id="control-visibility-toggle" size="small" bind:checked={controlVisibility.setting}>
         controls shown
         {#snippet offLabel()}
           controls hidden
@@ -77,12 +81,18 @@
 
 <style>
   :global {
+    html {
+      height: 100%;
+    }
     body {
       display: flex;
       flex-direction: column;
       min-width: min-content;
       min-height: 100dvh;
       background-image: linear-gradient(to bottom right, hotpink, purple);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
     }
 
     .dark body {
@@ -99,7 +109,6 @@
         background-image: none;
         padding: 0;
         margin: 0;
-        border: 0;
       }
 
       nav,

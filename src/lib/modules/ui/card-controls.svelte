@@ -17,6 +17,10 @@
     <div>
       <CharacterUpload />
     </div>
+    <div>Convenient emoji to copy/paste</div>
+    <div class="text-sm">🔲 ◼️ - checkboxes</div>
+    <div class="text-sm">◼️ 🟫 🟥 🟧 🟨 🟩 🟦 🟪</div>
+    <div class="text-sm">⚫ 🟤 🔴 🟠 🟡 🟢 🔵 🟣</div>
   </div>
   <div class="font">
     <div class="spanner"><h2>Fonts</h2></div>
@@ -38,12 +42,14 @@
   }
 
   .font {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     column-gap: 1em;
+    row-gap: 0;
   }
 
   .spanner {
-    grid-column: 1 / -1;
+    flex-basis: 100%;
   }
 </style>

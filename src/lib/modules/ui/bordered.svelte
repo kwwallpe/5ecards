@@ -18,8 +18,8 @@
     'my-0',
     'text-body',
     'bg-linear-to-r',
-    'from-neutral-primary-medium/60',
-    'to-neutral-primary-medium',
+    'from-neutral-primary-medium/65',
+    'to-neutral-primary-medium/80',
     { print },
     { hidden },
   ]}

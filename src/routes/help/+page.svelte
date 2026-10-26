@@ -1,7 +1,9 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
-  import controlsPic from '$lib/assets/controls.png';
-  import folioPic from '$lib/assets/folio.jpeg';
+  import characterControlsPic from '$lib/assets/character_controls.webp';
+  import controlsTogglePic from '$lib/assets/control_toggle.webp';
+  import folioPic from '$lib/assets/folio.webp';
+  import fontControlsPic from '$lib/assets/font_controls.webp';
   import Bordered from '$lib/modules/ui/bordered.svelte';
 </script>
 
@@ -11,6 +13,82 @@
 
 <Bordered print={true}>
   <h1>D&D 5e Character Index Cards</h1>
+  <h2 class="pt-2">Help</h2>
+  <div>
+    <p>
+      The cards on the home page can have text filled into any text box. The text from these boxes will print, while
+      leaving out the background and border that show when they're active. The page saves all text entered on the cards
+      between visits.
+    </p>
+    <p>
+      The controls at the top of the page can be used to change the fonts on the cards, or save and load characters.
+    </p>
+  </div>
+
+  <div class="with-image mb-8">
+    <p>
+      <img
+        id="help-controls-toggle-image"
+        src={controlsTogglePic}
+        alt="A toggle with 'controls visible' and 'controls hidden' settings"
+      />
+      The character and font controls can be displayed or hidden with the <em>controls visible/hidden</em> toggle. This is
+      nice if you want to just use the page as a character sheet instead of printing.
+    </p>
+  </div>
+  <div class="with-image mb-8">
+    <img
+      id="help-character-controls"
+      src={characterControlsPic}
+      alt="A set of controls for characters:
+        1) a 'Clear Character' button,
+        2) a 'Download Character' button,
+        and 3) a file upload control labeled 'Upload Character'"
+    />
+    Character controls allow saving and loading characters for later use/updating.
+    <ul class="list-outside list-disc pl-4 pt-2 overflow-auto">
+      <li><strong>Clear Character:</strong> This button will simply clear all the cards, leaving them blank.</li>
+      <li>
+        <strong>Download Character:</strong> This button downloads the current values on the cards as a
+        <em>.json</em> file.
+      </li>
+      <li>
+        <strong>Upload Character:</strong> This is a file upload control. Uploading a <em>.json</em> file will populate the
+        cards with its stored character.
+      </li>
+    </ul>
+  </div>
+
+  <div class="with-image mb-8">
+    <img
+      id="help-font-controls"
+      src={fontControlsPic}
+      alt="A set of font controls in two columns (Card Label Font and Card Input Font). Each column features a dropdown
+      control to select the font, a Size Adjustment slider, a Reset Adjustment button and a Reset All button."
+    />
+    Font controls allow changing the face and size of the fonts the cards use. Your last font selections are saved between
+    visits. And for each font, the page saves the size set for that font. The <strong>Card Label Font</strong> is the
+    font used on the static text on the cards. The <strong>Card Input Font</strong> is the font used for the text input
+    fields. Each of these fonts has its own set of controls.
+    <ul class="list-outside list-disc pl-4 pt-2 overflow-auto">
+      <li>
+        <strong>Font:</strong> Select the font face to use. Defaults to
+        <a href="https://opendyslexic.org/">OpenDyslexic</a>.
+      </li>
+      <li>
+        <strong>Size Adjustment</strong>: Scales the font up or down. I sized the fields based on the OpenDyslexic font,
+        and gave all other fonts a default adjustment of 80%, but I haven't tested them all.
+      </li>
+      <li>
+        <strong>Reset Adjustment</strong>: Resets the size adjustment for the currently selected font back to the
+        default.
+      </li>
+      <li>
+        <strong>Reset All</strong>: This button will reset the size adjustment for all fonts back to the default.
+      </li>
+    </ul>
+  </div>
+
   <h2>The Big Idea</h2>
   <div class="with-img">
     <p>
@@ -20,7 +98,8 @@
           id="help-folio-image"
           src={folioPic}
           alt="A trifold folio, where each panel holds a column of three index cards.
-        Each index card contains some of the stats and info that go into a character."
+            Each index card contains some of the stats and info that go into a character."
+          class="aspect-1280/700 max-w-1/2 min-w-xs ml-1! float-right!"
         />
       </a>
       I've never found a character sheet for 5th edition <abbr title="Dungeons & Dragons">D&D</abbr> that I like. So I
@@ -54,8 +133,8 @@
         above photo that just lists all this character's spells.)
       </li>
       <li>
-        Color-coded stats/skills. Because that's how I think of them. I've been playing for some time, and I know what
-        uses <abbr title="intelligence">INT</abbr> and what uses <abbr title="wisdom">WIS</abbr>.
+        Skills organized by (color-coded) stats. Because that's how I think of them. I've been playing for some time,
+        and I know what uses <abbr title="intelligence">INT</abbr> and what uses <abbr title="wisdom">WIS</abbr>.
       </li>
       <li>Minimal "wasted" space on things I don't regularly use.</li>
       <li>More lines than a standard index card.</li>
@@ -67,83 +146,15 @@
     </p>
     <p>Dig it or don't! Cheers!</p>
   </div>
-  <h2 class="pt-2">Help</h2>
-  <div class="with-img">
-    <p>
-      <img
-        id="help-controls-image"
-        src={controlsPic}
-        alt="A screenshot of the controls for fonts and sizes on the home page.
-          There are two columns - Card Label Font and Card Input Font.
-          Under each column, there are the following controls:
-          1) A drop-down selection box for the font face.
-          2) A percentage slider marked Size Adjustment.
-          3) A Reset Adjustment button.
-          4) A Reset All button.
-        These controls are explained in detail in the text of the page."
-      />
-      The cards on the home page can have text filled into any text box. The text from these boxes will print, while leaving
-      out the background and border that show when they're active.
-    </p>
-    <p>There are some controls available for customizing the fonts used on the cards.</p>
-    <ul class="list-outside list-disc ml-8">
-      <li>
-        <strong>Fonts</strong>
-        <ul class="list-outside list-disc ml-8">
-          <li>
-            <em>Card Label Font</em>: This controls the font that is used for the static text on the cards. For example,
-            <em>Name:</em> at the top of the first card.
-          </li>
-          <li>
-            <em>Card Input Font</em>: This controls the font that is used for entered text on the cards. For example, if
-            you enter something in the <em>Name</em> field on the first card, it will display and print in this font.
-          </li>
-          <li>
-            <em>Size Adjustment</em>: For each font, this scales the font up or down. I sized the fields based on the
-            OpenDyslexic font, and gave all other fonts a default adjustment of 80%, but I haven't tested them all.
-          </li>
-          <li>
-            <em>Reset Adjustment</em>: This button will reset the size adjustment for the currently selected label/input
-            font back to the default.
-          </li>
-          <li>
-            <em>Reset All</em>: This button will reset the size adjustment for all label/input fonts back to the
-            default.
-          </li>
-        </ul>
-      </li>
-      <li>
-        The last font you used for each type is saved, as are size adjustments you make for each font and type. So if
-        you used Arial at 75% for labels and Courier New at 60% for inputs, those settings will be rememebered.
-      </li>
-    </ul>
-  </div>
 </Bordered>
 
 <style>
-  h1,
-  h2,
-  ul {
+  h2 {
     margin-top: 0;
   }
 
-  #help-folio-image {
-    border-radius: 30px;
-    aspect-ratio: 1280 / 700;
-    max-width: 50%;
-    min-width: 300px;
-    float: right;
-    margin-left: 15px;
-  }
-
-  #help-controls-image {
-    width: 495px;
-    height: 263px;
-    float: right;
-    margin-left: 15px;
-  }
-
-  .with-img {
-    display: block !important;
+  img {
+    float: left;
+    margin-right: 20px;
   }
 </style>
