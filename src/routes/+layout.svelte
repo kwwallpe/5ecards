@@ -1,7 +1,20 @@
 <script lang="ts">
   import './layout.css';
-  import { Navbar, NavLi, NavUl, NavHamburger, DarkMode, Footer, ThemeProvider, Toggle } from 'flowbite-svelte';
-  import { ArrowUpRightFromSquareOutline } from 'flowbite-svelte-icons';
+  import {
+    Navbar,
+    NavLi,
+    NavUl,
+    NavHamburger,
+    DarkMode,
+    Footer,
+    ThemeProvider,
+    Toggle,
+    FooterLink,
+    FooterLinkGroup,
+    Img,
+    FooterIcon,
+  } from 'flowbite-svelte';
+  import { ArrowUpRightFromSquareOutline, GithubSolid } from 'flowbite-svelte-icons';
   import { setContext, type Snippet } from 'svelte';
 
   import { asset, resolve } from '$app/paths';
@@ -62,20 +75,26 @@
   </main>
 
   <Footer class="flex items-center justify-between rounded-none">
-    <span class="text-sm">
-      <a href="https://lazarusrat.carrd.co">Lazarus Rat</a> is the one what done this.
-    </span>
-    <span class="text-sm">
-      <a href="https://ko-fi.com/lazarusrat">
-        <img
+    <FooterLinkGroup>
+      <FooterLink href="https://lazarusrat.carrd.co" class="inline-block">Lazarus Rat</FooterLink> is the one what done this.
+    </FooterLinkGroup>
+    <FooterLinkGroup>
+      <FooterLink href="https://ko-fi.com/lazarusrat" class="inline-block">
+        <Img
           id="help-folio-image"
           src="/assets/kofi_symbol.webp"
           alt="ko-fi.com icon, a mug with a heart inside"
           class="inline-block align-middle me-1 h-6.25 aspect-321/258"
         />
-        Tip the rat</a
-      > <span>if you dig this.</span>
-    </span>
+        Tip the rat</FooterLink
+      >
+      if you dig this.
+    </FooterLinkGroup>
+    <FooterLinkGroup>
+      <FooterIcon href="https://https://github.com/kwwallpe/5ecards">
+        <GithubSolid class="inline-block" size="lg" />
+      </FooterIcon>
+    </FooterLinkGroup>
   </Footer>
 </ThemeProvider>
 

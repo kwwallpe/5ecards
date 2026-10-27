@@ -1,5 +1,11 @@
 # Changes
 
+### 1.1.1
+
+Added docker for local dev.
+Added github link, made the repo public.
+Added github workflow for deploying on tag.
+
 ## 1.1.0
 
 Very big update!
