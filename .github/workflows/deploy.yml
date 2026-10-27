@@ -5,7 +5,7 @@ on:
     tags: ['*']
 
 jobs:
-  build_site:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -13,14 +13,20 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v6
-        with:
-          version: 12.14.0
 
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
       - name: build
         run: pnpm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.role_arn }}
+          aws-region: us-west-2
+          role-session-name: GitHubActions-${{ github.run_id }}
+          role-duration-seconds: 300 # 5 minutes
 
       - name: Deploy to S3
         run: |
