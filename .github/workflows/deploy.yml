@@ -1,0 +1,26 @@
+name: Deploy Site
+
+on:
+  push:
+    tags: ['*']
+
+jobs:
+  build_site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: build
+        run: pnpm run build
+
+      - name: Deploy to S3
+        run: |
+          cd build
+          aws s3 sync "./" "s3://${{ secrets.S3_BUCKET_NAME }}" --delete --dryrun
