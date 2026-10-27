@@ -29,7 +29,7 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: us-west-2
           role-session-name: GitHubActions-${{ github.run_id }}
-          role-duration-seconds: 300 # 5 minutes
+          role-duration-seconds: 900 # 15 minutes
 
       - name: Deploy to S3
         run: |
