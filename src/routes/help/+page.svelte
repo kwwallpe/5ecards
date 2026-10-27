@@ -25,7 +25,7 @@
     </p>
   </div>
 
-  <div class="with-image mb-8">
+  <div class="mb-8">
     <p>
       <img
         id="help-controls-toggle-image"
@@ -36,7 +36,8 @@
       nice if you want to just use the page as a character sheet instead of printing.
     </p>
   </div>
-  <div class="with-image mb-8">
+
+  <div class="mb-8">
     <img
       id="help-character-controls"
       src={characterControlsPic}
@@ -59,7 +60,7 @@
     </ul>
   </div>
 
-  <div class="with-image mb-8">
+  <div class="mb-8">
     <img
       id="help-font-controls"
       src={fontControlsPic}
@@ -90,7 +91,7 @@
   </div>
 
   <h2>The Big Idea</h2>
-  <div class="with-img">
+  <div>
     <p>
       <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
       <a href={folioPic}>
