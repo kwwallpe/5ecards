@@ -14,13 +14,12 @@
 <div
   class={[
     fontSize,
-    'grid',
     'grid-cols-[0.65in_repeat(3,3fr)_2fr]',
     'text-right',
     'align-middle',
     'mx-auto',
     'my-0',
-    'dot-border',
+    'border-dotted border-card-border.',
     { 'border-b': !noBorder },
     { 'h-6': isHeader },
     { 'm-h-6': isHeader },

@@ -28,7 +28,7 @@
     {/if}
   </Banner>
 
-  <div class="grid gap-(--teenth)" style:grid-template-columns={columns}>
+  <div class="gap-(--teenth)" style:grid-template-columns={columns}>
     {#each { length: 2 }, column}
       <div>
         <LinedRows id="{id}-text-{column + 1}" />

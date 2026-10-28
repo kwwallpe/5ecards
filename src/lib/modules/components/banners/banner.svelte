@@ -14,7 +14,7 @@
 </script>
 
 <div
-  class="grid font-bold gap-1 h-[0.3in] border-card-border {borderClass} {alignClasses[textAlign]}"
+  class="font-bold gap-1 h-[0.3in] border-card-border {borderClass} {alignClasses[textAlign]}"
   style:grid-template-columns={columns}
 >
   {@render children()}

@@ -13,7 +13,6 @@
 <div
   class={[
     'min-w-[5.75in]',
-    'grid',
     'p-8',
     'print:m-0',
     'print:p-0',

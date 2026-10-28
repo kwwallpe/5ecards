@@ -18,7 +18,7 @@
     <div class="text-right pr-px">Sp. Slots</div>
   </Banner>
 
-  <div class="grid grid-rows-9 text-[0.75em]">
+  <div class="grid-rows-9 text-[0.75em]">
     {#each { length: 9 }, i}
       {@const level = i + 1}
       {@const rowId = `${id}-level-${level}`}

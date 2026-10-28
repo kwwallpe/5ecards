@@ -12,7 +12,7 @@
   let caps = $derived(attr.toUpperCase());
   let attrId = $derived(`${id}-${attr}`);
   const sharedClasses = 'stat text-right pr-1.25 ' as const;
-  const borderedClasses = 'border-r dot-border' as const;
+  const borderedClasses = 'border-r border-dotted border-card-border.' as const;
 </script>
 
 <div class="{sharedClasses} {borderedClasses}" style:color={attrColor(attr)}>

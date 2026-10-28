@@ -10,8 +10,8 @@
   let { id, rows = 12, textAlign = 'left' }: Props = $props();
 </script>
 
-<div class="grid overflow-hidden h-auto" style:grid-template-rows={rows}>
+<div class="h-auto" style:grid-template-rows={rows}>
   {#each { length: rows }, i}
-    <div class="border-b dot-border overflow-hidden"><Text id="{id}-{i + 1}" {textAlign} /></div>
+    <div class="border-b border-dotted border-card-border. overflow-hidden"><Text id="{id}-{i + 1}" {textAlign} /></div>
   {/each}
 </div>

@@ -22,12 +22,12 @@
     <BannerInput id={characterNameId} textAlign="left" />
   </Banner>
 
-  <div class="grid grid-cols-[2.5in_1fr] gap-x-1.5">
-    <div class="grid grid-rows-[0.25in_repeat(6,1fr)]">
+  <div class="grid-cols-[2.5in_1fr] gap-x-1.5">
+    <div class="grid-rows-[0.25in_repeat(6,1fr)]">
       <AttrRow isHeader={true}>
-        <div class="text-right pr-1.25 border-r dot-border"></div>
-        <div class="text-right pr-1.25 border-r dot-border">Stat</div>
-        <div class="text-right pr-1.25 border-r dot-border">Mod</div>
+        <div class="text-right pr-1.25 border-r border-dotted border-card-border."></div>
+        <div class="text-right pr-1.25 border-r border-dotted border-card-border.">Stat</div>
+        <div class="text-right pr-1.25 border-r border-dotted border-card-border.">Mod</div>
         <div>Save</div>
         <div></div>
       </AttrRow>
@@ -38,7 +38,7 @@
       {/each}
     </div>
 
-    <div class="grid grid-rows-6 h-51">
+    <div class="grid-rows-6 h-51">
       <AcEtc label="Inspiration">
         <Checkbox id="{id}-inspo" --size="0.25in" />
       </AcEtc>

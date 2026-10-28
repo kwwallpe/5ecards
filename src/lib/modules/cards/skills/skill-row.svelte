@@ -15,7 +15,6 @@
 
 <div
   class={[
-    'grid',
     'grid-cols-[1fr_4fr_1.25fr]',
     'mx-auto',
     'my-0',
