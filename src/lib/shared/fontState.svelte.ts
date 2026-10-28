@@ -1,4 +1,4 @@
-import { type Storable, StorageKey, StorageUtil } from './storage.ts';
+import { type Storable, type StorableStatic, StorageKey, StorageUtil } from './storage.ts';
 
 const OPENDYSLEXIC = 'OpenDyslexic';
 const DEFAULTS = [
@@ -42,7 +42,7 @@ type RoleSettingValue = {
 };
 type FontSettingsRecord = Record<FontRole, RoleSettingValue>;
 
-class FontSettings implements Storable<FontSettings> {
+class FontSettings implements Storable {
   settings: FontSettingsRecord = $state<FontSettingsRecord>(FontSettings.defaultSettings);
 
   constructor(settings?: FontSettingsRecord | null) {
@@ -168,6 +168,7 @@ class FontSettings implements Storable<FontSettings> {
     StorageUtil.save(FontSettings, this);
   }
 }
+FontSettings satisfies StorableStatic<FontSettings>;
 
 export class FontAccessor {
   settings: FontSettings;

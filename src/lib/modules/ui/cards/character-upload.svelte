@@ -9,10 +9,8 @@
   let character: Character = getContext(characterContextKey);
 
   const onchange = (event: Event) => {
-    console.log('onchange from file upload', event.currentTarget);
     const input = event.currentTarget as HTMLInputElement;
     const file = input.files?.[0];
-    console.log('file?', input.files, file);
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -20,6 +18,7 @@
           const newCharacter = Character.deserialize(e.target?.result as string);
           character.settings = newCharacter.settings;
           character.files = input.files;
+          character.save();
         } catch (error) {
           console.error(error);
         }

@@ -26,7 +26,7 @@
         <LinedRows id="{id}-kits" rows={7} />
       </div>
     </div>
-    <div class="grid-rows-[0.3in 1fr] pl-0.5 border-dotted border-card-border border-l">
+    <div class="grid-rows-[0.3in_1fr] pl-0.5 border-dotted border-card-border border-l">
       <div class="font-bold">Languages</div>
       <LinedRows id="{id}-languages" rows={9} />
     </div>

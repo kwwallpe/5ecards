@@ -41,7 +41,7 @@ Character controls allow saving and loading characters for later use/updating.
 
 Font controls allow changing the face and size of the fonts the cards use. Your last font selections are saved between visits. And for each font, the page saves the size set for that font. The **Card Label Font** is the font used on the static text on the cards. The **Card Input Font** is the font used for the text input fields. Each of these fonts has its own set of controls.
 
-- **Font:** Select the font face to use. Defaults to [OpenDyslexic]("https://opendyslexic.org/").
+- **Font:** Select the font face to use. Defaults to [OpenDyslexic](https://opendyslexic.org/).
 - **Size Adjustment:** Scales the font up or down. I sized the fields based on the OpenDyslexic font, and gave all other fonts a default adjustment of 80%, but I haven't tested them all.
 - **Reset Adjustment:** Resets the size adjustment for the currently selected font back to the default.
 - **Reset All:** This button will reset the size adjustment for all fonts back to the default.

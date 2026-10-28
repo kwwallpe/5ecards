@@ -1,4 +1,4 @@
-export function slugify(str: any) {
+export function slugify(str: string) {
   return String(str)
     .replace(/\s+/g, '-') // replace spaces with hyphens
     .replace(/-+/g, '-') // remove consecutive hyphens
@@ -6,5 +6,5 @@ export function slugify(str: any) {
     .normalize('NFKD') // split accented characters into their base characters and diacritical marks
     .replace(/[\u0300-\u036f]/g, '') // remove all the accents, which happen to be all in the \u03xx UNICODE block.
     .toLowerCase() // convert to lowercase
-    .replace(/[^a-z0-9 -]/g, '') // remove non-alphanumeric characters
+    .replace(/[^a-z0-9 -]/g, ''); // remove non-alphanumeric characters
 }

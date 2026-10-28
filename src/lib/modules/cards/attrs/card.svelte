@@ -6,7 +6,7 @@
   import Text from '$lib/modules/components/inputs/text.svelte';
   import { mainAttrs } from '$lib/shared/attrs';
   import { characterNameId } from '$lib/shared/characterState.svelte';
-  import { slugify } from '$lib/shared/utils.svelte';
+  import { slugify } from '$lib/shared/utils';
 
   import AcEtc from './ac-etc-row.svelte';
   import AttrRow from './attr-row.svelte';

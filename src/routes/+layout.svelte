@@ -91,7 +91,7 @@
       if you dig this.
     </FooterLinkGroup>
     <FooterLinkGroup>
-      <FooterIcon href="https://https://github.com/kwwallpe/5ecards">
+      <FooterIcon href="https://github.com/kwwallpe/5ecards">
         <GithubSolid class="inline-block" size="lg" />
       </FooterIcon>
     </FooterLinkGroup>

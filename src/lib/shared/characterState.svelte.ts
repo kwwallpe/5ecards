@@ -1,5 +1,5 @@
-import { type Storable, StorageKey, StorageUtil } from './storage.ts';
-import { slugify } from './utils.svelte.ts';
+import { type Storable, type StorableStatic, StorageKey, StorageUtil } from './storage.ts';
+import { slugify } from './utils.ts';
 
 export const characterContextKey = Symbol('characterSettings');
 export const characterNameId: string = 'character-name' as const;
@@ -17,7 +17,7 @@ type CharacterSettings = {
   [CHECKS]: CharacterCheckRecord;
 };
 
-export class Character implements Storable<Character> {
+export class Character implements Storable {
   settings: CharacterSettings = $state<CharacterSettings>(Character.defaultSettings);
   files: FileList | undefined | null = $state();
 
@@ -87,6 +87,7 @@ export class Character implements Storable<Character> {
     StorageUtil.save(Character, this);
   }
 }
+Character satisfies StorableStatic<Character>;
 
 export class CharacterAccessor {
   id: string;
