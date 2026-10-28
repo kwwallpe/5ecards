@@ -6,7 +6,15 @@
 		<meta name="text-scale" content="scale" />
 		<script>
 			const mq = matchMedia('(prefers-color-scheme: dark)');
-			const apply = () => document.documentElement.classList.toggle('dark', mq.matches);
+			const apply = () => {
+				let saved = null;
+				try {
+					saved = localStorage.getItem('THEME_PREFERENCE_KEY');
+				} catch {
+					// noop
+				}
+				document.documentElement.classList.toggle('dark', saved ? saved === 'dark' : mq.matches);
+			}
 			apply();
 			mq.addEventListener('change', apply);
 		</script>
