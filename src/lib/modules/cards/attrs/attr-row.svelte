@@ -19,7 +19,7 @@
     'align-middle',
     'mx-auto',
     'my-0',
-    'border-dotted border-card-border.',
+    'border-dotted border-card-border',
     { 'border-b': !noBorder },
     { 'h-6': isHeader },
     { 'm-h-6': isHeader },

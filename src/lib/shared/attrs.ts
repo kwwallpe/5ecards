@@ -1,4 +1,10 @@
-export const mainAttrs = ['str', 'dex', 'con', 'int', 'wis', 'cha'] as const;
-export type MainAttr = (typeof mainAttrs)[number];
-
-export const attrColor = (attr: MainAttr) => `var(--color-${attr})`;
+export const attrTextClass = {
+  str: 'text-str',
+  dex: 'text-dex',
+  con: 'text-con',
+  int: 'text-int',
+  wis: 'text-wis',
+  cha: 'text-cha',
+} as const satisfies Record<string, string>;
+export type MainAttr = keyof typeof attrTextClass;
+export const mainAttrs = Object.keys(attrTextClass) as MainAttr[];

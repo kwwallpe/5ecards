@@ -1,7 +1,7 @@
 <script lang="ts">
   import Checkbox from '$lib/modules/components/inputs/checkbox.svelte';
   import Text from '$lib/modules/components/inputs/text.svelte';
-  import { type MainAttr, attrColor } from '$lib/shared/attrs';
+  import { type MainAttr, attrTextClass } from '$lib/shared/attrs';
 
   interface Props {
     attr: MainAttr;
@@ -25,6 +25,6 @@
   ]}
 >
   <div><Checkbox id="skill-{id}-prof" /></div>
-  <div style:color={attrColor(attr)}>{name}</div>
+  <div class={attrTextClass[attr]}>{name}</div>
   <div><Text id="skill-{id}" fontSize="12px" /></div>
 </div>
