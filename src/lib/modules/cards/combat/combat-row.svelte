@@ -12,66 +12,23 @@
   let spellSlots = $derived(level == 1 ? 4 : level <= 4 ? 3 : level <= 7 ? 2 : 1);
 </script>
 
-<div class="combat-row">
+<div class="grid grid-cols-[calc(3.2in+(3in/16))_1fr] gap-1 align-middle mx-auto my-0">
   {#if text}
-    <div class="atk-etc">
-      <div>{text}</div>
-      <div><Text id="{id}-atk" /></div>
-      <div><Text id="{id}-dmg" /></div>
-      <div><Text id="{id}-dc" /></div>
+    <div class="grid grid-cols-[repeat(4,calc(13in/16))] text-right gap-1 border-b dot-border">
+      <div class="pr-px">{text}</div>
+      <div class="border-r pr-px dot-border"><Text id="{id}-atk" /></div>
+      <div class="border-r pr-px dot-border"><Text id="{id}-dmg" /></div>
+      <div class="pr-px"><Text id="{id}-dc" /></div>
     </div>
   {:else}
-    <div class="fill"><Text id="{id}-free" textAlign="left" /></div>
+    <div class="col-span-1"><Text id="{id}-free" textAlign="left" /></div>
   {/if}
-  <div class="spells">
-    <div>{level}</div>
-    <div>
+  <div class="grid grid-cols-2 border-l dot-border">
+    <div class="mr-[0.35in] text-right">{level}</div>
+    <div class="grid grid-cols-4 gap-0.75">
       {#each { length: spellSlots }, slot}
         <Checkbox id="{id}-sp-slot-{slot + 1}" />
       {/each}
     </div>
   </div>
 </div>
-
-<style>
-  .combat-row {
-    grid-template-columns: calc(3.2in + (3in / 16)) 1fr;
-    gap: calc(1in / 16);
-    text-align: left;
-    vertical-align: middle;
-    margin: auto 0;
-  }
-
-  .atk-etc {
-    grid-template-columns: repeat(4, calc(13in / 16));
-    text-align: right;
-    gap: calc(1in / 16);
-    border-bottom: 1px dotted var(--color-card-border);
-  }
-  .atk-etc div {
-    border-right: 1px dotted var(--color-card-border);
-    padding-right: 1px;
-  }
-  .atk-etc div:last-of-type,
-  .atk-etc div:first-of-type {
-    border-right: 0;
-  }
-
-  .spells {
-    grid-template-columns: 2fr 2fr;
-    border-left: 1px dotted var(--color-card-border);
-  }
-
-  .spells div:first-of-type {
-    margin-right: 0.35in;
-    text-align: right;
-  }
-
-  .spells div:last-of-type {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .fill {
-    grid-column: 1 / span 1;
-  }
-</style>

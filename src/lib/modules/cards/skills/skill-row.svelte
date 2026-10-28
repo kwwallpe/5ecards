@@ -13,24 +13,19 @@
   let id = $derived(name.toLowerCase().replace(/[\W_]+/g, '-'));
 </script>
 
-<div class={['skill-row', { borderless: noBorder }]}>
+<div
+  class={[
+    'grid',
+    'grid-cols-[1fr_4fr_1.25fr]',
+    'mx-auto',
+    'my-0',
+    'items-center',
+    'justify-start',
+    'grad-border',
+    { 'border-b': !noBorder },
+  ]}
+>
   <div><Checkbox id="skill-{id}-prof" /></div>
   <div style:color={attrColor(attr)}>{name}</div>
   <div><Text id="skill-{id}" /></div>
 </div>
-
-<style>
-  .skill-row {
-    grid-template-columns: 1fr 4fr 1.25fr;
-    align-items: center;
-    justify-content: left;
-    margin: auto 0;
-    border-width: 0 0 1px 0;
-    border-style: solid;
-    border-image: linear-gradient(to right, transparent 0%, transparent 50%, var(--color-card-border) 100%) 1;
-  }
-
-  .borderless {
-    border: 0;
-  }
-</style>

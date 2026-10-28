@@ -8,30 +8,23 @@
   }
 
   let { isHeader = false, noBorder = false, children }: Props = $props();
-  let rowClass = $derived(isHeader ? 'attr-header' : 'attr-row');
+  let fontSize = $derived(isHeader ? 'text-[0.75em]' : 'text-[0.9em]');
 </script>
 
-<div class={[rowClass, { borderless: noBorder }]}>
+<div
+  class={[
+    fontSize,
+    'grid',
+    'grid-cols-[0.65in_repeat(3,3fr)_2fr]',
+    'text-right',
+    'align-middle',
+    'mx-auto',
+    'my-0',
+    'dot-border',
+    { 'border-b': !noBorder },
+    { 'h-6': isHeader },
+    { 'm-h-6': isHeader },
+  ]}
+>
   {@render children()}
 </div>
-
-<style>
-  .attr-row,
-  .attr-header {
-    grid-template-columns: 0.65in repeat(3, 3fr) 2fr;
-    text-align: right;
-    vertical-align: middle;
-    font-size: 0.9em;
-    margin: auto 0;
-    border-bottom: 1px dotted var(--color-card-border);
-  }
-  .attr-header {
-    font-size: 0.75em;
-    height: 0.25in;
-    max-height: 0.25in;
-  }
-
-  .borderless {
-    border: 0;
-  }
-</style>

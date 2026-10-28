@@ -11,65 +11,24 @@
   <Banner>
     <div>Proficiencies</div>
   </Banner>
-  <div class="profs">
-    <div>
-      <div class="armor">
-        <div>Armor:</div>
+  <div class="profs grid grid-cols-[2.75in_1fr] gap-x-1">
+    <div class="grid grid-rows-[0.3in_0.3in_1fr]">
+      <div class="grid grid-cols-[calc(15in/16)_1fr] gap-1">
+        <div class="font-bold">Armor:</div>
         <div><Text id="{id}-armor" textAlign="left" /></div>
       </div>
-      <div class="weapons">
-        <div>Weapons:</div>
+      <div class="grid grid-cols-[calc(21in/16)_1fr] gap-1">
+        <div class="font-bold">Weapons:</div>
         <div><Text id="{id}-weapons" textAlign="left" /></div>
       </div>
-      <div class="kits">
-        <div>Kits etc.</div>
+      <div class="grid grid-rows-[0.3in_1fr] dot-border border-t">
+        <div class="font-bold">Kits etc.</div>
         <LinedRows id="{id}-kits" rows={7} />
       </div>
     </div>
-    <div class="languages">
-      <div>Languages</div>
+    <div class="grid grid-rows-[0.3in 1fr] pl-0.5 dot-border border-l">
+      <div class="font-bold">Languages</div>
       <LinedRows id="{id}-languages" rows={9} />
     </div>
   </div>
 </Card>
-
-<style>
-  .profs {
-    grid-template-columns: 2.75in 1fr;
-    column-gap: calc(1in / 16);
-  }
-
-  .profs > div:first-child {
-    grid-template-rows: 0.3in 0.3in 1fr;
-  }
-
-  .armor {
-    grid-template-columns: calc(15in / 16) 1fr;
-    gap: 5px;
-  }
-  .weapons {
-    grid-template-columns: calc(21in / 16) 1fr;
-    gap: 5px;
-  }
-
-  .armor div:first-of-type,
-  .weapons div:first-of-type {
-    font-weight: bold;
-  }
-
-  .kits {
-    grid-template-rows: 0.3in 1fr;
-    border-top: 1px dotted var(--color-card-border);
-  }
-
-  .languages {
-    grid-template-rows: 0.3in 1fr;
-    padding-left: 2px;
-    border-left: 1px dotted var(--color-card-border);
-  }
-
-  .kits div:first-of-type,
-  .languages div:first-of-type {
-    font-weight: bold;
-  }
-</style>

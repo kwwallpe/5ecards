@@ -31,11 +31,6 @@
 </div>
 
 <style>
-  :global(.card div) {
-    display: grid;
-    overflow: hidden;
-    white-space: nowrap;
-  }
   .card {
     aspect-ratio: var(--c-width) / var(--c-height);
     width: var(--c-width);

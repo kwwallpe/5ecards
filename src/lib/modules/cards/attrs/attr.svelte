@@ -10,27 +10,15 @@
 
   let { id, attr }: Props = $props();
   let caps = $derived(attr.toUpperCase());
-  let attrId = $derived(`${id}=${attr}`);
+  let attrId = $derived(`${id}-${attr}`);
+  const sharedClasses = 'stat text-right pr-1.25 ' as const;
+  const borderedClasses = 'border-r dot-border' as const;
 </script>
 
-<div class="stat" style:color={attrColor(attr)}>{caps}</div>
-<div><Text id="{attrId}-stat" /></div>
-<div><Text id="{attrId}-mod" /></div>
-<div><Text id="{attrId}-save" /></div>
-<div><Checkbox id="{attrId}-check" /></div>
-
-<style>
-  div {
-    text-align: right;
-    padding-right: 5px;
-    border-right: 1px dotted var(--color-card-border);
-  }
-  div:first-of-type {
-    padding-right: 5px;
-  }
-
-  div:nth-last-of-type(2),
-  div:nth-last-of-type(1) {
-    border: 0;
-  }
-</style>
+<div class="{sharedClasses} {borderedClasses}" style:color={attrColor(attr)}>
+  {caps}
+</div>
+<div class="{sharedClasses} {borderedClasses}"><Text id="{attrId}-stat" /></div>
+<div class="{sharedClasses} {borderedClasses}"><Text id="{attrId}-mod" /></div>
+<div class={sharedClasses}><Text id="{attrId}-save" /></div>
+<div class={sharedClasses}><Checkbox id="{attrId}-check" /></div>

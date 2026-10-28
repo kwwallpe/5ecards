@@ -22,12 +22,12 @@
     <BannerInput id={characterNameId} textAlign="left" />
   </Banner>
 
-  <div class="card-columns">
-    <div class="attributes">
+  <div class="grid grid-cols-[2.5in_calc(2.25in-(1in/16))] gap-x-1.5 h-51">
+    <div class="grid-rows-[0.25in_repeat(6,calc(1.85in/6))]">
       <AttrRow isHeader={true}>
-        <div class="attr-head"></div>
-        <div class="attr-head">Stat</div>
-        <div class="attr-head">Mod</div>
+        <div class="text-right pr-1.25 border-r dot-border"></div>
+        <div class="text-right pr-1.25 border-r dot-border">Stat</div>
+        <div class="text-right pr-1.25 border-r dot-border">Mod</div>
         <div>Save</div>
         <div></div>
       </AttrRow>
@@ -38,7 +38,7 @@
       {/each}
     </div>
 
-    <div class="ac-hp-etc">
+    <div class="grid grid-rows-6 h-51">
       <AcEtc label="Inspiration">
         <Checkbox id="{id}-inspo" --size="calc(1in / 4)" />
       </AcEtc>
@@ -55,29 +55,3 @@
     <BannerInput id="{id}-footer-input" textAlign="left" />
   </Banner>
 </Card>
-
-<style>
-  .card-columns {
-    grid-template-columns: 2.5in calc(2.25in - (1in / 16));
-    column-gap: calc(1in / 16);
-    height: calc(17in / 8);
-  }
-
-  .attributes {
-    grid-template-rows: 0.25in repeat(6, calc(1.85in / 6));
-  }
-  .attr-head {
-    text-align: right;
-    padding-right: 5px;
-    border-right: 1px dotted var(--color-card-border);
-  }
-  .attr-head:first-of-type {
-    padding-right: 5px;
-  }
-
-  .ac-hp-etc {
-    grid-template-rows: repeat(6, 1fr);
-    height: 2.1in;
-    max-height: 2.1in;
-  }
-</style>

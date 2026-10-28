@@ -36,6 +36,9 @@
   --color-card: var(--color-gray-100);
   --color-card-fg: black;
   --color-card-border: lightgray;
+
+  --eighth: calc(1in / 8);
+  --teenth: calc(1in / 16);
 }
 
 @theme static {
@@ -113,5 +116,20 @@
   p {
     margin-block-start: 1em;
     margin-block-end: 1em;
+  }
+
+  .card div {
+    display: grid;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .grad-border {
+    border-image: linear-gradient(to right, transparent 0%, transparent 50%, var(--color-card-border) 100%) 1;
+  }
+
+  .dot-border {
+    border-color: var(--color-card-border);
+    border-style: dotted;
   }
 }

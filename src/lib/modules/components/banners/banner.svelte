@@ -9,24 +9,13 @@
   }
 
   let { isHeader = true, columns = '1fr', textAlign = 'left', children }: Props = $props();
-  let borderClass = $derived(isHeader ? 'head' : 'foot');
+  let borderClass = $derived(isHeader ? 'border-b' : 'border-t');
+  let alignClasses = { left: 'text-left', center: 'text-center', right: 'text-right' };
 </script>
 
-<div class={borderClass} style="grid-template-columns: {columns}; text-align: {textAlign}">
+<div
+  class="grid font-bold gap-1 h-[0.3in] border-card-border {borderClass} {alignClasses[textAlign]}"
+  style:grid-template-columns={columns}
+>
   {@render children()}
 </div>
-
-<style>
-  div {
-    font-weight: bold;
-    height: 0.3in;
-    max-height: 0.3in;
-    gap: calc(1in / 16);
-  }
-  .head {
-    border-bottom: 1px solid var(--color-card-border);
-  }
-  .foot {
-    border-top: 1px solid var(--color-card-border);
-  }
-</style>
