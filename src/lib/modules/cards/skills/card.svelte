@@ -11,8 +11,8 @@
   <Banner>
     <div>Skills</div>
   </Banner>
-  <div class="cols-2">
-    <div class="skills">
+  <div class="grid grid-cols-2 gap-1.5">
+    <div class="grid grid-rows-9 text-[0.75em]">
       <SkillRow attr="str" name="Athletics" />
       <SkillRow attr="dex" name="Acrobatics" />
       <SkillRow attr="dex" name="Sleight o' Hand" />
@@ -23,7 +23,7 @@
       <SkillRow attr="int" name="Nature" />
       <SkillRow attr="int" name="Religion" noBorder={true} />
     </div>
-    <div class="skills">
+    <div class="grid grid-rows-9 text-[0.75em]">
       <SkillRow attr="cha" name="Deception" />
       <SkillRow attr="cha" name="Intimidation" />
       <SkillRow attr="cha" name="Performance" />
@@ -36,15 +36,3 @@
     </div>
   </div>
 </Card>
-
-<style>
-  .cols-2 {
-    grid-template-columns: 1fr 1fr;
-    column-gap: calc(1in / 16);
-  }
-
-  .skills {
-    grid-template-rows: repeat(9, auto);
-    font-size: 0.75em;
-  }
-</style>

@@ -2,7 +2,7 @@
   import Card from '$lib/modules/cards/card.svelte';
   import Banner from '$lib/modules/components/banners/banner.svelte';
   import Text from '$lib/modules/components/inputs/text.svelte';
-  import LinedRows from '$lib/modules/lined-rows.svelte';
+  import LinedRows from '$lib/modules/components/lined-rows.svelte';
 
   const id = 'profs-card';
 </script>

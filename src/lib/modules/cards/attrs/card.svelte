@@ -22,8 +22,8 @@
     <BannerInput id={characterNameId} textAlign="left" />
   </Banner>
 
-  <div class="grid grid-cols-[2.5in_calc(2.25in-(1in/16))] gap-x-1.5 h-51">
-    <div class="grid-rows-[0.25in_repeat(6,calc(1.85in/6))]">
+  <div class="grid grid-cols-[2.5in_1fr] gap-x-1.5">
+    <div class="grid grid-rows-[0.25in_repeat(6,1fr)]">
       <AttrRow isHeader={true}>
         <div class="text-right pr-1.25 border-r dot-border"></div>
         <div class="text-right pr-1.25 border-r dot-border">Stat</div>
@@ -40,11 +40,11 @@
 
     <div class="grid grid-rows-6 h-51">
       <AcEtc label="Inspiration">
-        <Checkbox id="{id}-inspo" --size="calc(1in / 4)" />
+        <Checkbox id="{id}-inspo" --size="0.25in" />
       </AcEtc>
       {#each acEtc as label, i (label)}
         <AcEtc {label} noBorder={i == acEtc.length - 1}>
-          <Text id="{id}-{slugify(label)}" />
+          <Text id="{id}-{slugify(label)}" fontSize="12px" />
         </AcEtc>
       {/each}
     </div>

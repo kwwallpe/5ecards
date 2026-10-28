@@ -87,6 +87,47 @@
 }
 
 @layer base {
+  html {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-width: min-content;
+    min-height: 100dvh;
+    background-image: linear-gradient(to bottom right, hotpink, purple);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image: linear-gradient(to bottom right, indigo, var(--color-pink-600));
+  }
+
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  @media print {
+    body,
+    html,
+    .dark body,
+    .dark html {
+      display: block;
+      background: white;
+      background-image: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav,
+    footer {
+      display: none;
+    }
+  }
+
   a {
     color: var(--color-fg-brand);
   }

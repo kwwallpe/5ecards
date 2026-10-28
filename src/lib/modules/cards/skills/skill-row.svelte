@@ -27,5 +27,5 @@
 >
   <div><Checkbox id="skill-{id}-prof" /></div>
   <div style:color={attrColor(attr)}>{name}</div>
-  <div><Text id="skill-{id}" /></div>
+  <div><Text id="skill-{id}" fontSize="12px" /></div>
 </div>

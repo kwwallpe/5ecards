@@ -22,6 +22,7 @@
   type="text"
   {id}
   bind:value={characterAccessor.text}
+  class="h-full"
   style="
     font-family: {fontAccessor.font};
     text-align: {textAlign};

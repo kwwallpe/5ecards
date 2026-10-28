@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Card from "$lib/modules/cards/card.svelte";
-  import Banner from "$lib/modules/components/banners/banner.svelte";
-  import BannerInput from "$lib/modules/components/banners/banner-input.svelte";
-  import LinedRows from "$lib/modules/lined-rows.svelte";
+  import Card from '$lib/modules/cards/card.svelte';
+  import BannerInput from '$lib/modules/components/banners/banner-input.svelte';
+  import Banner from '$lib/modules/components/banners/banner.svelte';
+  import LinedRows from '$lib/modules/components/lined-rows.svelte';
 
   interface Props {
     id: string;
@@ -15,7 +15,7 @@
 <Card {id}>
   <Banner>
     {#if header}
-      <div style="background-color: transparent;">{header}</div>
+      <div class="bg-transparent">{header}</div>
     {:else}
       <BannerInput id="{id}-header-input" />
     {/if}

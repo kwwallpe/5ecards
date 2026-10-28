@@ -12,42 +12,21 @@
 
 <div
   class={[
-    'bordered',
+    'min-w-[5.75in]',
+    'grid',
     'p-8',
+    'print:m-0',
+    'print:p-0',
+    'print:bg-white',
     'mx-auto',
     'my-0',
     'text-body',
     'bg-linear-to-r',
     'from-neutral-primary-medium/65',
     'to-neutral-primary-medium/80',
-    { print },
-    { hidden },
+    { 'print:hidden': !print },
+    { hidden: hidden },
   ]}
 >
   {@render children()}
 </div>
-
-<style>
-  div {
-    display: grid;
-  }
-
-  .bordered {
-    min-width: 5.75in;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  @media print {
-    div:not(.print) {
-      display: none;
-    }
-    .bordered {
-      margin: 0;
-      padding: 0;
-      background-color: white;
-    }
-  }
-</style>

@@ -2,7 +2,7 @@
   import Card from '$lib/modules/cards/card.svelte';
   import Banner from '$lib/modules/components/banners/banner.svelte';
   import Text from '$lib/modules/components/inputs/text.svelte';
-  import LinedRows from '$lib/modules/lined-rows.svelte';
+  import LinedRows from '$lib/modules/components/lined-rows.svelte';
 
   const id = 'items-card';
   const mainClasses = 'text-[0.75em] text-emerald-700 ml-0.5 pb-px pr-px' as const;

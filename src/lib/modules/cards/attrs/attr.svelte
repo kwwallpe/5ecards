@@ -18,7 +18,7 @@
 <div class="{sharedClasses} {borderedClasses}" style:color={attrColor(attr)}>
   {caps}
 </div>
-<div class="{sharedClasses} {borderedClasses}"><Text id="{attrId}-stat" /></div>
-<div class="{sharedClasses} {borderedClasses}"><Text id="{attrId}-mod" /></div>
-<div class={sharedClasses}><Text id="{attrId}-save" /></div>
+<div class="{sharedClasses} {borderedClasses}"><Text id="{attrId}-stat" fontSize="12px" /></div>
+<div class="{sharedClasses} {borderedClasses}"><Text id="{attrId}-mod" fontSize="12px" /></div>
+<div class={sharedClasses}><Text id="{attrId}-save" fontSize="12px" /></div>
 <div class={sharedClasses}><Checkbox id="{attrId}-check" /></div>

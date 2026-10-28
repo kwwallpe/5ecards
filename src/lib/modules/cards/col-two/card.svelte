@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Card from "$lib/modules/cards/card.svelte";
-  import Banner from "$lib/modules/components/banners/banner.svelte";
-  import BannerInput from "$lib/modules/components/banners/banner-input.svelte";
-  import LinedRows from "$lib/modules/lined-rows.svelte";
+  import Card from '$lib/modules/cards/card.svelte';
+  import BannerInput from '$lib/modules/components/banners/banner-input.svelte';
+  import Banner from '$lib/modules/components/banners/banner.svelte';
+  import LinedRows from '$lib/modules/components/lined-rows.svelte';
 
   interface Props {
     id: string;
@@ -11,7 +11,7 @@
   }
 
   let { id, header1 = null, header2 = null }: Props = $props();
-  const columns = "1fr 1fr";
+  const columns = '1fr 1fr';
 </script>
 
 <Card {id}>
@@ -28,7 +28,7 @@
     {/if}
   </Banner>
 
-  <div style="grid-template-columns: {columns}; gap: calc(1in / 16);">
+  <div class="grid gap-(--teenth)" style:grid-template-columns={columns}>
     {#each { length: 2 }, column}
       <div>
         <LinedRows id="{id}-text-{column + 1}" />

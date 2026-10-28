@@ -36,6 +36,7 @@ export const THEME = {
            bg-linear-to-l from-neutral-primary-medium/60 to-neutral-primary-medium
            text-body
            mt-6
+           print:hidden
            `,
   input: {
     base: 'h-full',
@@ -57,6 +58,7 @@ export const THEME = {
            bg-linear-to-l from-neutral-primary-medium/60 to-neutral-primary-medium
            text-body
            mb-6
+           print:hidden
            `,
   navbarUl: {
     active: `text-body/70 dark:text-body/70

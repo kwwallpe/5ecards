@@ -14,7 +14,7 @@
 
 <div class="grid grid-cols-[calc(3.2in+(3in/16))_1fr] gap-1 align-middle mx-auto my-0">
   {#if text}
-    <div class="grid grid-cols-[repeat(4,calc(13in/16))] text-right gap-1 border-b dot-border">
+    <div class="grid grid-cols-4 text-right gap-1 border-b dot-border">
       <div class="pr-px">{text}</div>
       <div class="border-r pr-px dot-border"><Text id="{id}-atk" /></div>
       <div class="border-r pr-px dot-border"><Text id="{id}-dmg" /></div>
