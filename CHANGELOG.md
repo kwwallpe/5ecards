@@ -1,5 +1,9 @@
 # Changes
 
+### 1.1.2
+
+Internal updates (use tailwind more extensively), linting fixes. Should be no visible changes.
+
 ### 1.1.1
 
 Added docker for local dev.
