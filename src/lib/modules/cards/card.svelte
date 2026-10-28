@@ -31,7 +31,7 @@
     word-spacing: {fontAccessor.wordSpacing};
   "
 >
-  <div class="m-[calc(1in/8)] w-[4.75in] h-[2.75in]" style:grid-template-rows={rows}>
+  <div class="m-(--eighth) w-[4.75in] h-[2.75in]" style:grid-template-rows={rows}>
     {@render children()}
   </div>
 </div>
