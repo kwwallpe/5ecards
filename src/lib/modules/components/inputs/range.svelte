@@ -26,7 +26,7 @@
 </script>
 
 <div>
-  <div class="range">
+  <div class="flex flex-row gap-1.5 justify-between mb-1.5">
     <div>
       <Label for={id}>{label}</Label>
     </div>
@@ -36,13 +36,3 @@
   </div>
   <Range {id} {min} {max} {step} bind:value {onchange} />
 </div>
-
-<style>
-  .range {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    justify-content: space-between;
-    margin-bottom: 5px;
-  }
-</style>

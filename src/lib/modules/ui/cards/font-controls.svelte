@@ -10,19 +10,9 @@
   const { role }: Props = $props();
 </script>
 
-<div>
+<div class="flex flex-col items-stretch justify-start gap-2.5">
   <FontSelect {role} />
   <FontAdjustRange {role} />
   <FontResetButton {role} />
   <FontResetButton {role} all={true} />
 </div>
-
-<style>
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: right;
-    justify-content: top;
-    gap: 10px;
-  }
-</style>
